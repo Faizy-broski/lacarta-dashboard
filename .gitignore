@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 
+src/routeTree.gen.ts
+
 .env
 
 # Editor directories and files
