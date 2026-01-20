@@ -34,7 +34,6 @@
     "@radix-ui/react-tabs": "^1.1.13",
     "@radix-ui/react-tooltip": "^1.2.8",
     "@tailwindcss/vite": "^4.1.18",
-    "@tanstack/react-table": "^8.21.3",
     "axios": "^1.13.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -59,9 +58,6 @@
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@faker-js/faker": "^10.1.0",
-    "@tanstack/eslint-plugin-query": "^5.91.2",
-    "@tanstack/react-query-devtools": "^5.91.1",
-    "@tanstack/react-router-devtools": "^1.141.2",
     "@trivago/prettier-plugin-sort-imports": "^6.0.0",
     "@types/node": "^25.0.2",
     "@types/react": "^19.2.7",
