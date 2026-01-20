@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from 'react-router-dom'
+// import { useNavigate, useSearchParams } from 'react-router-dom'
 import { ConfigDrawer } from '@/components/config-drawer'
 import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
@@ -8,17 +8,17 @@ import { ThemeSwitch } from '@/components/theme-switch'
 import { TasksDialogs } from './components/tasks-dialogs'
 import { TasksPrimaryButtons } from './components/tasks-primary-buttons'
 import { TasksProvider } from './components/tasks-provider'
-import { TasksTable } from './components/tasks-table'
-import { taskSearchSchema } from './data/task-search.schema'
-import { tasks } from './data/tasks'
+// import { TasksTable } from './components/tasks-table'
+// import { taskSearchSchema } from './data/task-search.schema'
+// import { tasks } from './data/tasks'
 
 export function Tasks() {
-  const [searchParams] = useSearchParams()
-  const navigate = useNavigate()
+  // const [searchParams] = useSearchParams()
+  // const navigate = useNavigate()
 
-  const parsed = taskSearchSchema.safeParse(Object.fromEntries(searchParams))
+  // const parsed = taskSearchSchema.safeParse(Object.fromEntries(searchParams))
 
-  const search = parsed.success ? parsed.data : taskSearchSchema.parse({})
+  // const search = parsed.success ? parsed.data : taskSearchSchema.parse({})
 
   return (
     <TasksProvider>
@@ -41,7 +41,7 @@ export function Tasks() {
           </div>
           <TasksPrimaryButtons />
         </div>
-        <TasksTable data={tasks} search={search} navigate={navigate} />
+        {/* <TasksTable data={tasks} search={search} navigate={navigate} /> */}
       </Main>
 
       <TasksDialogs />

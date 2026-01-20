@@ -1,5 +1,5 @@
 // import { getRouteApi } from '@tanstack/react-router'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+// import { useNavigate, useSearchParams } from 'react-router-dom'
 import { ConfigDrawer } from '@/components/config-drawer'
 import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
@@ -9,20 +9,20 @@ import { ThemeSwitch } from '@/components/theme-switch'
 import { UsersDialogs } from './components/users-dialogs'
 import { UsersPrimaryButtons } from './components/users-primary-buttons'
 import { UsersProvider } from './components/users-provider'
-import { UsersTable } from './components/users-table'
-import { users } from './data/users'
-import {usersSearchSchema}  from './data/users-search.schema'
+// import { UsersTable } from './components/users-table'
+// import { users } from './data/users'
+// import {usersSearchSchema}  from './data/users-search.schema'
 
 // const route = getRouteApi('/_authenticated/users/')
 
 export function Users() {
-  const [searchParams] = useSearchParams()
-  const navigate = useNavigate()
+  // const [searchParams] = useSearchParams()
+  // const navigate = useNavigate()
 
   // const search = Object.fromEntries(searchParams)
-  const parsed = usersSearchSchema.safeParse(Object.fromEntries(searchParams))
+  // const parsed = usersSearchSchema.safeParse(Object.fromEntries(searchParams))
 
-  const search = parsed.success ? parsed.data : usersSearchSchema.parse({})
+  // const search = parsed.success ? parsed.data : usersSearchSchema.parse({})
   return (
     <UsersProvider>
       <Header fixed>
@@ -44,7 +44,7 @@ export function Users() {
           </div>
           <UsersPrimaryButtons />
         </div>
-        <UsersTable data={users} search={search} navigate={navigate} />
+        {/* <UsersTable data={users} search={search} navigate={navigate} /> */}
       </Main>
 
       <UsersDialogs />

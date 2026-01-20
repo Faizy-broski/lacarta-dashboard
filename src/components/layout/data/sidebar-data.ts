@@ -22,10 +22,10 @@ import {
   Command,
   GalleryVerticalEnd,
 } from 'lucide-react'
-import { ClerkLogo } from '@/assets/clerk-logo'
-import { type SidebarData } from '../types'
+// import { ClerkLogo } from '@/assets/clerk-logo'
+// import { type SidebarData } from '../types'
 
-export const sidebarData: SidebarData = {
+export const sidebarData: any = {
   user: {
     name: 'satnaing',
     email: 'satnaingdev@gmail.com',

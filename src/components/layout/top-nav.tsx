@@ -30,7 +30,9 @@ export function TopNav({ className, links, ...props }: TopNavProps) {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent side='bottom' align='start'>
-            {links.map(({ title, href, isActive, disabled }) => (
+            {links.map(({ title, href, 
+            // isActive, 
+            disabled }) => (
               <DropdownMenuItem key={`${title}-${href}`} asChild>
                 <NavLink
                   to={href}
@@ -57,7 +59,9 @@ export function TopNav({ className, links, ...props }: TopNavProps) {
         )}
         {...props}
       >
-        {links.map(({ title, href, isActive, disabled }) => (
+        {links.map(({ title, href, 
+        // isActive, 
+        disabled }) => (
           <NavLink
             to={href}
             onClick={(e) => disabled && e.preventDefault()}
