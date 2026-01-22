@@ -23,6 +23,8 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+  
+
 
   --sidebar: var(--background);
   --sidebar-foreground: var(--foreground);
@@ -32,6 +34,13 @@
   --sidebar-accent-foreground: var(--accent-foreground);
   --sidebar-border: var(--border);
   --sidebar-ring: var(--ring);
+
+
+
+   /* Progress Gradients */
+  --progress-gold: linear-gradient(90deg, #d4a017 0%, #f5c542 100%);
+  --progress-green: linear-gradient(90deg, #16a34a 0%, #22c55e 100%);
+  --progress-red: linear-gradient(90deg, #b91c1c 0%, #ef4444 100%);
 }
 
 .dark {
@@ -58,6 +67,12 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
+
+
+  /* Progress Gradients (Dark) */
+  --progress-gold: linear-gradient(90deg, #a16207 0%, #facc15 100%);
+  --progress-green: linear-gradient(90deg, #15803d 0%, #22c55e 100%);
+  --progress-red: linear-gradient(90deg, #991b1b 0%, #ef4444 100%);
 }
 
 @theme inline {
@@ -99,4 +114,8 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+    --bg-progress-gold: var(--progress-gold);
+  --bg-progress-green: var(--progress-green);
+  --bg-progress-red: var(--progress-red);
 }

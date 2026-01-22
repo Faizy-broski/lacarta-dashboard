@@ -290,8 +290,11 @@ import { Search } from '@/components/search'
 import { ThemeSwitch } from '@/components/theme-switch'
 // import { Overview } from './components/overview'
 import { VisitorsEngagementChart } from './components/VisitorsEngagementChart'
+import { AnalyticsPanels } from './components/analyticsPanels'
+import { EventsAndDeals } from './components/eventsAndDeals'
+import { QuickActions } from './components/quick-action'
 import { Analytics } from './components/analytics'
-import { RecentSales } from './components/recent-sales'
+// import { RecentSales } from './components/recent-sales'
 
 export function Dashboard() {
   return (
@@ -482,7 +485,7 @@ export function Dashboard() {
             </div>
             <div className='grid grid-cols-1 gap-4 lg:grid-cols-7'>
               <VisitorsEngagementChart />
-              <Card className='lg:col-span-3'>
+              {/* <Card className='lg:col-span-3'>
                 <CardHeader>
                   <CardTitle>Recent Sales</CardTitle>
                   <CardDescription>
@@ -492,8 +495,11 @@ export function Dashboard() {
                 <CardContent>
                   <RecentSales />
                 </CardContent>
-              </Card>
+              </Card> */}
+              <QuickActions />
             </div>
+            <AnalyticsPanels />
+            <EventsAndDeals /> 
           </TabsContent>
           <TabsContent value='analytics' className='space-y-4'>
             <Analytics />
