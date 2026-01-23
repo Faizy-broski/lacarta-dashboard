@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 // import { Calendar } from "@/components/ui/calendar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Check, X, Clock } from "lucide-react"
+import { Check, X, Clock, Document } from "lucide-react"
 import { isSameDay } from "date-fns"
 import EventsScheduled from "./calender-sec"
 
@@ -46,20 +46,23 @@ export function EventsAndDeals() {
             </Badge>
           </div>
         </CardHeader>
-        <CardContent className="space-y-4 flex-1">
+        <CardContent className="space-y-4 text-center  flex-1">
           {pendingDeals.map((deal, i) => (
             <div
               key={i}
-              className="flex items-start justify-between border-b pb-3 last:border-0 last:pb-0"
+              className="flex items-start justify-between bg-gray-100 rounded-md pb-3"
             >
-              <div>
+              <div className="flex gap-2 align-items-center">
+                <Check className="h-4 w-4" />
+                <div>
                 <p className="font-medium">{deal.title}</p>
                 <p className="text-xs text-muted-foreground">{deal.author}</p>
-                <Badge variant="outline" className="mt-1 text-xs">
-                  {deal.status}
-                </Badge>
+                </div>
               </div>
               <div className="flex gap-1">
+                <Badge variant="outline" className="text-green-600 mt-1 text-xs">
+                  {deal.status}
+                </Badge>
                 <Button
                   size="icon"
                   variant="ghost"
@@ -78,7 +81,7 @@ export function EventsAndDeals() {
             </div>
           ))}
 
-          <Button variant="link" className="mt-2 px-0 text-primary">
+          <Button variant="link" className="mt-2 -center px-0 text-green-600">
             View All Pending Items
           </Button>
         </CardContent>

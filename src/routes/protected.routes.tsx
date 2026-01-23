@@ -29,6 +29,8 @@ import { SettingsNotifications } from '@/features/settings/notifications'
 import { SettingsProfile } from '@/features/settings/profile'
 import { Tasks } from '@/features/tasks/index'
 import { Users } from '@/features/users/index'
+import { Subscription } from '@/features/subscription/index'
+import { Events } from '@/features/events and calender/index'
 
 function ErrorComponent() {
   const { error } = useParams<{ error?: string }>()
@@ -67,6 +69,9 @@ export default (
     <Route path='/chats' element={<Chats />} />
     <Route path='/apps' element={<Apps />} />
     <Route path='/help-center' element={<ComingSoon />} />
+    <Route path='/subscriptions' element={<Subscription />} />
+    <Route path='/events' element={<Events />} />
+
 
     <Route path='/settings' element={<Settings />}>
       <Route index element={<SettingsProfile />} />

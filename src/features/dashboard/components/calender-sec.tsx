@@ -1,18 +1,9 @@
 import { Calendar } from "@/components/ui/calendar"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useState } from "react"
 
-// You can later move this to separate data file / api
-const eventDots = {
-  5: "bg-red-500",      // red dot
-  12: "bg-blue-500",    // blue dot
-  18: "bg-green-500",   // green
-  22: "bg-yellow-500",  // yellow
-  25: "bg-red-600",     // important red
-}
 
 const upcoming = [
   { name: "Beach Guide", color: "bg-orange-500" },
@@ -33,18 +24,6 @@ export default function EventsScheduled() {
             <CardTitle className="text-xl font-semibold">
               Events Scheduled
             </CardTitle>
-
-            <div className="flex items-center gap-4">
-              <button className="rounded-full p-1.5 hover:bg-muted transition-colors">
-                <ChevronLeft className="h-5 w-5" />
-              </button>
-              <span className="font-medium min-w-[140px] text-center">
-                December 2024
-              </span>
-              <button className="rounded-full p-1.5 hover:bg-muted transition-colors">
-                <ChevronRight className="h-5 w-5" />
-              </button>
-            </div>
           </div>
         </CardHeader>
 
