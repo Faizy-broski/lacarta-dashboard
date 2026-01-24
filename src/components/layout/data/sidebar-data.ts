@@ -116,12 +116,12 @@ export const sidebarData: any = {
           icon: Users,
           items: [
             {
-              title: 'New Deals',
-              url: '/deals/new-deals',
+              title: 'All Deals',
+              url: '/deals/all-deals',
             },
             {
-              title: 'Hot Deals',
-              url: '/deals/hot-deals',
+              title: 'Active Deals',
+              url: '/deals/active-deals',
             },
           ],
         },

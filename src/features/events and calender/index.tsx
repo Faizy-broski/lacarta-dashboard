@@ -1,3 +1,10 @@
+
+import {
+  Tabs,
+  TabsContent,
+  // TabsList, TabsTrigger
+} from '@/components/ui/tabs'
+
 import { Button } from '@/components/ui/button'
 import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
@@ -11,6 +18,9 @@ import FeaturedEvents from "./components/FeaturedEvents"
 import DraftEvents from "./components/DraftEvents"
 import EventCategories from "./components/EventCategories"
 import Insights from "./components/Insights"
+import TabsPage from "./components/tabs.tsx"
+
+
 
 export function Events() {
   return (
@@ -36,6 +46,17 @@ export function Events() {
                 Manage cultural events and calender visibility.
               </p>
             </div>
+
+            <Tabs
+                      orientation='vertical'
+                      defaultValue='overview'
+                      className='space-y-4'
+                    >
+                     
+                      <TabsContent value='overview' className='space-y-4'>
+                        <TabsPage /> 
+                      </TabsContent>
+                    </Tabs>
 
     <div className="space-y-8 p-6">
       <CalendarView />

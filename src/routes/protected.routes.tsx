@@ -31,6 +31,7 @@ import { Tasks } from '@/features/tasks/index'
 import { Users } from '@/features/users/index'
 import { Subscription } from '@/features/subscription/index'
 import { Events } from '@/features/events and calender/index'
+import {DealsPage} from '@/features/deals-page/index'
 
 function ErrorComponent() {
   const { error } = useParams<{ error?: string }>()
@@ -70,7 +71,9 @@ export default (
     <Route path='/apps' element={<Apps />} />
     <Route path='/help-center' element={<ComingSoon />} />
     <Route path='/subscriptions' element={<Subscription />} />
-    <Route path='/events' element={<Events />} />
+    <Route path='/events-&-calenders' element={<Events />} />
+    <Route path='/deals/all-deals' element={<DealsPage />} />
+
 
 
     <Route path='/settings' element={<Settings />}>
