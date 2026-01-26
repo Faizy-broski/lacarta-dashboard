@@ -1,9 +1,10 @@
 import { type ChangeEvent, useState } from 'react'
 import { SlidersHorizontal, ArrowUpAZ, ArrowDownAZ } from 'lucide-react'
 // import { getRouteApi } from '@tanstack/react-router'
-import { 
-  // useNavigate, 
-  useSearchParams } from 'react-router-dom'
+import {
+  // useNavigate,
+  useSearchParams,
+} from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import {
@@ -136,14 +137,7 @@ export function Apps() {
   return (
     <>
       {/* ===== Top Heading ===== */}
-      <Header>
-        <Search />
-        <div className='ms-auto flex items-center gap-4'>
-          <ThemeSwitch />
-          <ConfigDrawer />
-          <ProfileDropdown />
-        </div>
-      </Header>
+      <Header />
 
       {/* ===== Content ===== */}
       <Main fixed>

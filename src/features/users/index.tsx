@@ -1,14 +1,15 @@
 // import { getRouteApi } from '@tanstack/react-router'
 // import { useNavigate, useSearchParams } from 'react-router-dom'
-import { ConfigDrawer } from '@/components/config-drawer'
+// import { ConfigDrawer } from '@/components/config-drawer'
 import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
-import { ProfileDropdown } from '@/components/profile-dropdown'
-import { Search } from '@/components/search'
-import { ThemeSwitch } from '@/components/theme-switch'
+// import { ProfileDropdown } from '@/components/profile-dropdown'
+// import { Search } from '@/components/search'
+// import { ThemeSwitch } from '@/components/theme-switch'
 import { UsersDialogs } from './components/users-dialogs'
 import { UsersPrimaryButtons } from './components/users-primary-buttons'
 import { UsersProvider } from './components/users-provider'
+
 // import { UsersTable } from './components/users-table'
 // import { users } from './data/users'
 // import {usersSearchSchema}  from './data/users-search.schema'
@@ -25,14 +26,7 @@ export function Users() {
   // const search = parsed.success ? parsed.data : usersSearchSchema.parse({})
   return (
     <UsersProvider>
-      <Header fixed>
-        <Search />
-        <div className='ms-auto flex items-center space-x-4'>
-          <ThemeSwitch />
-          <ConfigDrawer />
-          <ProfileDropdown />
-        </div>
-      </Header>
+      <Header />
 
       <Main className='flex flex-1 flex-col gap-4 sm:gap-6'>
         <div className='flex flex-wrap items-end justify-between gap-2'>

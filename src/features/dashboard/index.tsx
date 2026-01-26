@@ -266,8 +266,8 @@
 //   },
 // ]
 // import React from 'react'
-import { Plus, Bell } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+// import { Plus, Bell } from 'lucide-react'
+// import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -284,9 +284,9 @@ import {
 import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
 // import { TopNav } from '@/components/layout/top-nav'
-import { ProfileDropdown } from '@/components/profile-dropdown'
-import { Search } from '@/components/search'
-import { ThemeSwitch } from '@/components/theme-switch'
+// import { ProfileDropdown } from '@/components/profile-dropdown'
+// import { Search } from '@/components/search'
+// import { ThemeSwitch } from '@/components/theme-switch'
 // import { Overview } from './components/overview'
 import { VisitorsEngagementChart } from './components/VisitorsEngagementChart'
 import { Analytics } from './components/analytics'
@@ -300,27 +300,7 @@ export function Dashboard() {
   return (
     <>
       {/* ===== Top Heading ===== */}
-      <Header>
-        {/* <TopNav links={topNav} /> */}
-        <Search />
-        <div className='ms-auto flex items-center space-x-4'>
-          <Button className='bg-gradient-to-r from-[#22c55e] to-[#11602e]'>
-            <Plus />
-            New Article
-          </Button>
-          {/* <Button variant='ghost' size='icon' className='scale-95 rounded-full'>
-            <Sun className='size-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90' />
-            <Moon className='absolute size-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0' />
-            <span className='sr-only'>Toggle theme</span>
-          </Button> */}
-          <Button variant='ghost' size='icon' className='scale-95 rounded-full'>
-            <Bell />
-          </Button>
-          <ThemeSwitch />
-          {/* <ConfigDrawer /> */}
-          <ProfileDropdown />
-        </div>
-      </Header>
+      <Header />
 
       {/* ===== Main ===== */}
       <Main>
