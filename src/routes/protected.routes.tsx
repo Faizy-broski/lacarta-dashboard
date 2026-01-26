@@ -32,7 +32,7 @@ import { Users } from '@/features/users/index'
 import { Subscription } from '@/features/subscription/index'
 import { Events } from '@/features/events and calender/index'
 import {DealsPage} from '@/features/deals-page/index'
-import {ActiveDealsPage} from '@/features/deals-page/ActiveDealsPage'
+import {ActiveDealsPage} from '@/features/deals-page/activeDealsPage'
 import {ContentPage} from '@/features/content/index'
 
 function ErrorComponent() {
