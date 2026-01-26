@@ -6,7 +6,7 @@ export default function UpcomingEvents() {
   return (
     <div>
       <div className="flex justify-between mb-3">
-        <h3 className="font-semibold">Upcoming Events</h3>
+        <h2 className="font-bold">Upcoming Events</h2>
         <span className="text-sm text-primary cursor-pointer">View all →</span>
       </div>
 
@@ -18,9 +18,9 @@ export default function UpcomingEvents() {
             "Cartagena Street Food Festival"
           ].map((event, i) => (
             <div key={i} className="py-3 flex justify-between">
-              <div className="flex gap-4 align-items-center">
-                <div className="rounded w-20">
-                <img className="w-full" src={img}></img>
+              <div className="flex gap-4 items-center">
+                <div className=" w-25">
+                <img className="rounded w-full" src={img}></img>
                 </div>
                 <div>
                 <p className="font-medium">{event}</p>
