@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import img from '../../../../public/images/shadcn-admin.png'
+import img from '/images/shadcn-admin.png'
 
 export default function UpcomingEvents() {
   return (

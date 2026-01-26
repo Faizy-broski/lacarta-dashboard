@@ -1,5 +1,5 @@
 import { Bell, LogOut } from 'lucide-react'
-import { useLayout } from '@/context/layout-provider'
+// import { useLayout } from '@/context/layout-provider'
 // import { NavUser } from './nav-user'
 // import { TeamSwitcher } from './team-switcher'
 import useDialogState from '@/hooks/use-dialog-state'
@@ -18,10 +18,11 @@ import { NavGroup } from './nav-group'
 
 export function AppSidebar() {
   const [open, setOpen] = useDialogState()
-  const { collapsible, variant } = useLayout()
+  // const { collapsible, variant } = useLayout()
   return (
-    <Sidebar collapsible={collapsible} variant={variant}>
-      <SidebarHeader>
+    // <Sidebar collapsible={collapsible} variant={variant}>
+    <Sidebar>
+      <SidebarHeader className='mb-4 border-b border-b-muted-foreground/50 py-4'>
         {/* <TeamSwitcher teams={sidebarData.teams} /> */}
 
         {/* Replace <TeamSwitch /> with the following <AppTitle />
@@ -29,17 +30,24 @@ export function AppSidebar() {
         <AppTitle />
       </SidebarHeader>
       <SidebarContent>
-        {sidebarData.navGroups.map((props) => (
+        {sidebarData.navGroups.map((props: any) => (
           <NavGroup key={props.title} {...props} />
         ))}
       </SidebarContent>
       <SidebarFooter>
         {/* <NavUser user={sidebarData.user} /> */}
-        <div className='flex gap-4'>
-          <Button variant='outline'>
+        <div className='flex'>
+          <Button
+            variant='outline'
+            className='bg-dark hover:bg-dark border-0 text-muted-foreground hover:text-gold'
+          >
             <Bell />
           </Button>
-          <Button variant='outline' onClick={() => setOpen(true)}>
+          <Button
+            variant='outline'
+            onClick={() => setOpen(true)}
+            className='bg-dark hover:bg-dark border-0 text-muted-foreground hover:text-gold'
+          >
             <LogOut />
           </Button>
         </div>

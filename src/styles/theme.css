@@ -1,4 +1,5 @@
 :root {
+  --gold: oklch(71.616% 0.13918 81.435);
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
@@ -23,10 +24,9 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  
 
-
-  --sidebar: var(--background);
+  /* --sidebar: var(--background); */
+  --sidebar: var(--foreground);
   --sidebar-foreground: var(--foreground);
   --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: var(--primary-foreground);
@@ -35,15 +35,16 @@
   --sidebar-border: var(--border);
   --sidebar-ring: var(--ring);
 
+  --sidebar-background: 220 15% 6%;
 
-
-   /* Progress Gradients */
+  /* Progress Gradients */
   --progress-gold: linear-gradient(90deg, #d4a017 0%, #f5c542 100%);
   --progress-green: linear-gradient(90deg, #16a34a 0%, #22c55e 100%);
   --progress-red: linear-gradient(90deg, #b91c1c 0%, #ef4444 100%);
 }
 
 .dark {
+  --gold: oklch(71.616% 0.13918 81.435);
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.14 0.04 259.21);
@@ -68,6 +69,16 @@
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
 
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  --sidebar-background: 220 15% 6%;
 
   /* Progress Gradients (Dark) */
   --progress-gold: linear-gradient(90deg, #a16207 0%, #facc15 100%);
@@ -76,6 +87,7 @@
 }
 
 @theme inline {
+  --color-gold: var(--gold);
   --font-inter: 'Inter', 'sans-serif';
   --font-manrope: 'Manrope', 'sans-serif';
 
@@ -115,7 +127,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-    --bg-progress-gold: var(--progress-gold);
+  --bg-progress-gold: var(--progress-gold);
   --bg-progress-green: var(--progress-green);
   --bg-progress-red: var(--progress-red);
 }
