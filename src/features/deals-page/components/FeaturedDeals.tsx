@@ -1,11 +1,11 @@
-import { Card, CardContent,CardFooter } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Switch } from "@/components/ui/switch"
 import { Star ,Eye, Badge} from "lucide-react"
 
 export default function FeaturedDeals() {
   return (
-    <div>
-      <h2 className="font-semibold mb-4">
+    <div className="my-5">
+      <h2 className="font-bold mb-4">
         Featured Deals
         <span className="text-xs text-muted-foreground ml-2">
           Homepage placement
@@ -13,7 +13,7 @@ export default function FeaturedDeals() {
       </h2>
 
       <div className="grid md:grid-cols-2 gap-4">
-        {[1, 2, 3, 4].map((i) => (
+        {["1", "2", "3", "4"].map((i) => (
           <Card className="p-0">
             <CardContent className="flex items-center gap-4">
               <div className="w-30 h-30 relative">
@@ -32,13 +32,15 @@ export default function FeaturedDeals() {
                 </div>
                 <p className="text-medium font-bold">Private City Tour</p>
                 <p className="text-sm text-muted-foreground">Casa San Agustin</p>
+                <div className="flex justify-between">
                 <span className="flex text-muted-foreground gap-3 items-center"><Eye size={13}/><p className="text-xs text-muted-foreground">Preview Placement</p></span>
-              </div>
-
                <div className="flex gap-2 items-center">
-              <span className="text-sm font-bold text-muted-foreground">Featured</span>
+              <span className="text-xs font-semibold text-muted-foreground">Featured</span>
               <Switch defaultChecked />
               </div>
+              </div>
+              </div>
+
             </CardContent>
           </Card>
         ))}

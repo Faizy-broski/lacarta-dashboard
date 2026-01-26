@@ -2,8 +2,8 @@ import DealCard from "../components/DealCard"
 
 export default function ActiveDeals() {
   return (
-    <div>
-      <h2 className="font-semibold mb-4">
+    <div className="my-5">
+      <h2 className="font-bold mb-4">
         Active Deals <span className="text-muted-foreground">(4)</span>
       </h2>
 
@@ -15,9 +15,8 @@ export default function ActiveDeals() {
             profile="https://picsum.photos/400/300"
             name="La Vitrola"
             title="20% Off Spa Experience"
-            company="Casa San Agustin"
             date="Jan 1 – Mar 31"
-            tags={["Featured"]}
+            tags="Featured"
           />
         ))}
       </div>

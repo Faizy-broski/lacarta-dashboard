@@ -12,20 +12,16 @@ import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
 import { ThemeSwitch } from '@/components/theme-switch'
 
+
 import ActiveDeals from "./components/ActiveDeals"
-import ScheduledDeals from "./components/ScheduledDeals"
-import ExpiredDeals from "./components/ExpiredDeals"
-import FeaturedDeals from "./components/FeaturedDeals"
-import TabsPage from "./components/tabs.tsx"
-import PartnerSnapshot from "./components/partnerSnapShot"
-import DealsOverview from "./components/filterDeals"
 import CreateDealModal from "./components/createDealPage"
+import TabsPage from "./components/tabs.tsx"
 
 
-export function DealsPage() {
+export function ActiveDealsPage() {
   return (
     <>
-         {/* ===== Top Heading ===== */}
+      {/* ===== Top Heading ===== */}
                       <Header>
                         <Search />
                         <div className='ms-auto flex items-center space-x-4'>
@@ -39,7 +35,7 @@ export function DealsPage() {
                  <div className='mb-10 space-y-2 flex justify-between items-center'>
                   <div>
                       <h1 className='text-2xl font-bold tracking-tight'>
-                        Deals
+                        Active Deals
                       </h1>
                       <p className=' text-xs text-muted-foreground'>
                         Manage sponser offers and brands partnerships.
@@ -61,14 +57,9 @@ export function DealsPage() {
                               </TabsContent>
                             </Tabs>
 
-      <DealsOverview />                      
-      <ActiveDeals />
-      <ScheduledDeals />
-      <ExpiredDeals />
-      <FeaturedDeals />
-      <PartnerSnapshot />
-
-      </Main>
-    </>
+    
+<ActiveDeals />
+</Main>
+</>
   )
 }

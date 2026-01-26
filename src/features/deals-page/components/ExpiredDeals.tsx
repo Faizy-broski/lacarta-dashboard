@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -5,8 +6,8 @@ import {Copy,RefreshCw} from "lucide-react"
 
 export default function ExpiredDeals() {
   return (
-    <div>
-      <h2 className="font-semibold mb-4">
+    <div className="my-5">
+      <h2 className="font-bold mb-4">
         Expired Deals <span className="text-muted-foreground">(3)</span>
       </h2>
 

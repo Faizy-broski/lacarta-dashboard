@@ -1,9 +1,10 @@
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { MoreHorizontal } from "lucide-react"
 
-export default function DealCard({ image, title, name, company, date, tags, profile }) {
+export default function DealCard({ image, title, name, date, tags, profile }) {
   return (
     <Card className="overflow-hidden gap-0 p-0">
       <div className="relative">
@@ -28,17 +29,15 @@ export default function DealCard({ image, title, name, company, date, tags, prof
           <span className="text-sm font-semibold">{name}</span>
         </div>
         <p className="text-sm font-semibold">{title}</p>
-        <p className="text-xs text-muted-foreground">{company}</p>
 
         <div className="flex gap-2 flex-wrap">
-          {tags.map((tag, i) => (
-            <Badge key={i} variant="secondary" className="bg-yellow-100 text-yellow-600">
-              {tag}
+            <Badge variant="secondary" className="bg-yellow-100 text-yellow-600">
+              {tags}
             </Badge>
-          ))}
         </div>
 
         <p className="text-xs text-muted-foreground">{date}</p>
+        <hr></hr>
 
         <div className="flex justify-between items-center pt-2">
           <div className="flex gap-2">
