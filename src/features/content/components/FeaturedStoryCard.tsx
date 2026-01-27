@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import img from "@/assets/images/featured.png"
 import { Bell, Plus, Search, Menu, X, ChevronRight,NotebookPen, Edit, Eye, MoreVertical } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"

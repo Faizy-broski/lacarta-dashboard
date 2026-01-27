@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Bell, Plus, Search, Menu, X, ChevronRight,ArrowRight, Calendar,Edit, Eye, MoreVertical } from "lucide-react"
+import {FileText , PencilLine,FolderClosed,Star,Wrench} from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
@@ -26,11 +27,11 @@ import { cn } from "@/lib/utils"
 
 
 const quickAction = [
-  { title: "Cartagena City Guide", type: "City Guide", icon:<Calendar size={40} className="bg-yellow-100 text-yellow-600 rounded p-2"/>, color : "bg-yellow-100 text-yellow-600" },
-  { title: "5 Day Itinerary", type: "Itinerary", icon:<Calendar size={40} className="bg-yellow-100 text-yellow-600 rounded p-2"/>, color : "bg-yellow-100 text-yellow-600" },
-  { title: "Local Experiences", type: "Experience",  icon:<Calendar size={40} className="bg-yellow-100 text-yellow-600 rounded p-2"/>, color : "bg-yellow-100 text-yellow-600" },
-  { title: "Weekend in Getsemani", type: "City Guide",  icon:<Calendar size={40} className="bg-yellow-100 text-yellow-600 rounded p-2"/>, color : "bg-yellow-100 text-yellow-600" },
-  { title: "Beach Day Planner", type: "City Guide",  icon:<Calendar size={40} className="bg-yellow-100 text-yellow-600 rounded p-2"/>, color : "bg-yellow-100 text-yellow-600" },
+  { title: "Create Article", type: "Write new content", icon:<PencilLine size={40} className="bg-yellow-100 text-yellow-600 rounded p-2"/>, color : "bg-yellow-100 text-yellow-600" },
+  { title: "Review Drafts", type: "18 awaiting reviews", icon:<FileText size={40} className="bg-yellow-100 text-yellow-600 rounded p-2"/>, color : "bg-yellow-100 text-yellow-600" },
+  { title: "Manage Categories", type: "Organize content",  icon:<FolderClosed size={40} className="bg-yellow-100 text-yellow-600 rounded p-2"/>, color : "bg-yellow-100 text-yellow-600" },
+  { title: "Update Features", type: "Homepage stories",  icon:<Star size={40} className="bg-yellow-100 text-yellow-600 rounded p-2"/>, color : "bg-yellow-100 text-yellow-600" },
+  { title: "Beach Day Planner", type: "Guide & Planners",  icon:<Wrench size={40} className="bg-yellow-100 text-yellow-600 rounded p-2"/>, color : "bg-yellow-100 text-yellow-600" },
 ]
 
 export default function QuickActionCard(){
@@ -45,11 +46,11 @@ export default function QuickActionCard(){
             <CardContent>
               <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                 {quickAction.map((tool, i) => (
-                  <Card key={i} className="transition-colors">
-                    <CardContent className="">
+                  <Card key={i} className="transition-colors py-2">
+                    <CardContent className="px-2">
                       <div >
                           {tool.icon}
-                          <h3 className="font-bold text-sm">{tool.title}</h3>
+                          <p className="font-semibold text-md">{tool.title}</p>
                           <p className={`text-sm mt-1`}>{tool.type}</p>
                           <Button className="bg-white text-black"><ArrowRight size={30} /></Button>
                       </div>

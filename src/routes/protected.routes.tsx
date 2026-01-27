@@ -34,6 +34,10 @@ import { Events } from '@/features/events and calender/index'
 import {DealsPage} from '@/features/deals-page/index'
 import {ActiveDealsPage} from '@/features/deals-page/activeDealsPage'
 import {ContentPage} from '@/features/content/index'
+import {AnalyticsPage} from '@/features/analytics/index'
+import {OwnerListingEditorPage} from '@/features/Owner-Page/index'
+
+
 
 function ErrorComponent() {
   const { error } = useParams<{ error?: string }>()
@@ -76,6 +80,9 @@ export default (
     <Route path='/events-&-calenders' element={<Events />} />
     <Route path='/deals/all-deals' element={<DealsPage />} />
     <Route path='/deals/active-deals' element={<ActiveDealsPage />} />
+    <Route path='/analytics/admin-analytics' element={<AnalyticsPage />} />
+    <Route path='/analytics/owner-analytics' element={<OwnerListingEditorPage />} />
+    
 
     <Route path='/content' element={<ContentPage />}>
       {/* <Route path='/content/articles' element={<SettingsAppearance />} />

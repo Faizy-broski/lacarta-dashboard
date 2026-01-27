@@ -29,9 +29,9 @@ export function ContentPage() {
       <Main>
         <div className='mb-10 flex items-center justify-between space-y-2'>
           <div>
-            <h1 className='text-2xl font-bold tracking-tight'>Active Deals</h1>
+            <h1 className='text-2xl font-bold tracking-tight'>Content</h1>
             <p className='text-xs text-muted-foreground'>
-              Manage sponser offers and brands partnerships.
+              Manage all Editorial content across Lacarta.
             </p>
           </div>
           <div>

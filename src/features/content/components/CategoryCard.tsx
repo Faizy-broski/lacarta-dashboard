@@ -25,12 +25,12 @@ import { Switch } from "@/components/ui/switch"
 import { cn } from "@/lib/utils"
 
 const categories = [
-  { letter: "A", name: "Activities", count: 42 },
-  { letter: "A", name: "Accommodations", count: 38 },
-  { letter: "B", name: "Beaches", count: 24 },
-  { letter: "B", name: "Boating", count: 19 },
-  { letter: "R", name: "Real Estate", count: 31 },
-  { letter: "G", name: "Gastronomy", count: 27 },
+  { letter: "A", name: "Activities", count: 42,color:"yellow" },
+  { letter: "A", name: "Accommodations", count: 38 ,color:"red"},
+  { letter: "B", name: "Beaches", count: 24,color:"purple" },
+  { letter: "B", name: "Boating", count: 19 ,color:"green"},
+  { letter: "R", name: "Real Estate", count: 31,color:"blue" },
+  { letter: "G", name: "Gastronomy", count: 27 ,color:"gray"},
 ]
 
 export default function CategoryCard(){
@@ -50,9 +50,9 @@ export default function CategoryCard(){
             <CardContent>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 {categories.map((cat, i) => (
-                  <Card key={i} className="py-2">
+                  <Card key={i} className="py-5">
                     <CardContent className="px-3 space-y-2">
-                      <span className="text-lg font-semibold bg-yellow-100 text-black p-1 rounded mb-2">{cat.letter}</span>
+                      <span className={`text-lg font-semibold bg-${cat.color}-100 text-black px-3 py-2 rounded mb-3`}>{cat.letter}</span>
                       <h3 className="font-bold">{cat.name}</h3>
                       <p className="text-sm text-gray-400 mt-1">{cat.count} articles</p>
                     </CardContent>
