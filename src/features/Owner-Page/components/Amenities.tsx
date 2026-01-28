@@ -5,7 +5,7 @@ const amenities = ["Wifi", "Parking", "Air Conditioning", "Pool", "Garden", "Sma
 
 export function Amenities() {
   return (
-    <Card>
+    <Card className="my-7">
       <CardHeader>
         <h3 className="font-semibold">Amenities & Features</h3>
       </CardHeader>
