@@ -257,7 +257,7 @@ export const sidebarData: any = {
            items: [
             {
               title: 'Articles',
-              url: '/content/articles',
+              url: '/content',
             },
             {
               title: 'Drafts',

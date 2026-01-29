@@ -6,8 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 // import { Calendar } from "@/components/ui/calendar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Check, X, Clock, Document } from "lucide-react"
-import { isSameDay } from "date-fns"
+import { Check, X, Clock } from "lucide-react"
+// import { isSameDay } from "date-fns"
 import EventsScheduled from "./calender-sec"
 
 const pendingDeals = [
@@ -34,7 +34,7 @@ export function EventsAndDeals() {
   return (
     <div className="grid gap-6 md:grid-cols-2">
       {/* Events Scheduled - Calendar */}
-     <EventsScheduled  className="flex flex-col"/>
+     <EventsScheduled />
 
       {/* Pending Deals – unchanged, looks good */}
       <Card className="flex flex-col">
@@ -50,9 +50,9 @@ export function EventsAndDeals() {
           {pendingDeals.map((deal, i) => (
             <div
               key={i}
-              className="flex items-start justify-between bg-gray-100 rounded-md pb-3"
+              className="flex items-center justify-between bg-gray-100 rounded-md pb-3"
             >
-              <div className="flex gap-2 align-items-center">
+              <div className="flex gap-2 items-center">
                 <Check className="h-4 w-4" />
                 <div>
                 <p className="font-medium">{deal.title}</p>

@@ -104,7 +104,7 @@ export default function ArticleTable(){
                   <Card key={i} >
                     <CardContent className="p-4">
                       <div className="flex gap-4">
-                        <div className="h-20 w-28 rounded overflow-hidden bg-gray-800 flex-shrink-0">
+                        <div className="h-20 w-20 rounded overflow-hidden bg-gray-800 flex-shrink-0">
                           {/* <img src={article.image} alt="" className="h-full w-full object-cover" /> */}
                         </div>
                         <div className="flex-1 min-w-0">

@@ -34,6 +34,11 @@ import { Events } from '@/features/events and calender/index'
 import {DealsPage} from '@/features/deals-page/index'
 import {ActiveDealsPage} from '@/features/deals-page/activeDealsPage'
 import {ContentPage} from '@/features/content/index'
+import {ArticleContent} from '@/features/content/article'
+import {DraftContent} from '@/features/content/draft'
+import {CategoryContent} from '@/features/content/category'
+import {FeatureContent} from '@/features/content/featured'
+import {TravelToolContent} from '@/features/content/travelTool'
 import {AnalyticsPage} from '@/features/analytics/index'
 import {OwnerListingEditorPage} from '@/features/Owner-Page/index'
 
@@ -85,11 +90,11 @@ export default (
     
 
     <Route path='/content' element={<ContentPage />}>
-      {/* <Route path='/content/articles' element={<SettingsAppearance />} />
-      <Route path='/content/articles' element={<SettingsAccount />} />
-      <Route path='/content/articles' element={<SettingsDisplay />} />
-      <Route path='/content/articles' element={<SettingsNotifications />} />
-      <Route path='/content/articles' element={<SettingsNotifications />} /> */}
+      <Route index element={<ArticleContent />} />
+      <Route path='drafts' element={<DraftContent />} />
+      <Route path='categories' element={<CategoryContent />} />
+      <Route path='featured-stories' element={<FeatureContent />} />
+      <Route path='travel-tools' element={<TravelToolContent />} />
     </Route>
 
     <Route path='/settings' element={<Settings />}>

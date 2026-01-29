@@ -1,24 +1,53 @@
-import { ReceiptText, 
-  // Plus
- } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import {
-  Tabs,
-  TabsContent,
-  // TabsList, TabsTrigger
-} from '@/components/ui/tabs'
+// import { ReceiptText, 
+//   // Plus
+//  } from 'lucide-react'
+// import { Button } from '@/components/ui/button'
+// import {
+//   Tabs,
+//   TabsContent,
+//   // TabsList, TabsTrigger
+// } from '@/components/ui/tabs'
 import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
+import { Outlet } from 'react-router-dom'
+// import { Separator } from '@/components/ui/separator'
+// import { SidebarNav } from './components/sidebar-nav'
 // import { ProfileDropdown } from '@/components/profile-dropdown'
 // import { Search } from '@/components/search'
 // import { ThemeSwitch } from '@/components/theme-switch'
-import ArticleTable from './components/ArticleTable'
-import CategoryCard from './components/CategoryCard'
-import DraftCard from './components/DraftCard'
-import FeaturedStoryCard from './components/FeaturedStoryCard'
-import TravelToolCard from './components/TravelToolCard'
-import QuickActionCard from './components/quickActions'
-import TabsPage from './components/tabs'
+// import ArticleTable from './article/ArticleTable'
+// import CategoryCard from './category/CategoryCard'
+// import DraftCard from './draft/DraftCard'
+// import FeaturedStoryCard from './featured/FeaturedStoryCard'
+// import TravelToolCard from './travelTool/TravelToolCard'
+// import QuickActionCard from './components/quickActions'
+// import TabsPage from './components/tabs'
+
+
+
+// const sidebarNavItems = [
+//   {
+//     title: 'Article',
+//     href: '/content'
+//   },
+//   {
+//     title: 'Draft',
+//     href: '/content/drafts'
+//   },
+//   {
+//     title: 'Category',
+//     href: '/content/categories'
+//   },
+//   {
+//     title: 'Featured',
+//     href: '/content/featured-stories'
+//   },
+//   {
+//     title: 'Travel Tool',
+//     href: '/content/travel-tools'
+//   },
+// ]
+
 
 export function ContentPage() {
   return (
@@ -27,39 +56,11 @@ export function ContentPage() {
       <Header />
 
       <Main>
-        <div className='mb-10 flex items-center justify-between space-y-2'>
-          <div>
-            <h1 className='text-2xl font-bold tracking-tight'>Content</h1>
-            <p className='text-xs text-muted-foreground'>
-              Manage all Editorial content across Lacarta.
-            </p>
-          </div>
-          <div>
-            <Button className='mr-1 border bg-gray-100 text-black shadow hover:bg-black hover:text-white'>
-              <ReceiptText size={30} />
-              Travel Tool
-            </Button>
-            <Button className='mr-1 border bg-gray-100 text-black shadow hover:bg-black hover:text-white'>
-              <ReceiptText size={30} /> New Article
-            </Button>
-          </div>
-        </div>
-        <Tabs
-          orientation='vertical'
-          defaultValue='overview'
-          className='mb-5 space-y-4'
-        >
-          <TabsContent value='overview' className='space-y-4'>
-            <TabsPage />
-          </TabsContent>
-        </Tabs>
-
-        <ArticleTable />
-        <DraftCard />
-        <CategoryCard />
-        <FeaturedStoryCard />
-        <TravelToolCard />
-        <QuickActionCard />
+                {/* <div className='flex flex-1 flex-col space-y-2 overflow-hidden md:space-y-2 lg:flex-row lg:space-y-0 lg:space-x-12'> */}
+                 
+                  {/* <div className='flex w-full overflow-y-hidden p-1'> */}
+                    <Outlet />
+                  {/* </div> */}
       </Main>
     </>
   )
