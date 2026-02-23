@@ -1,4 +1,6 @@
 :root {
+  --font-antigua: 'antigua', sans-serif;
+  --font-georgia: 'georgia', sans-serif;
   --gold: oklch(71.616% 0.13918 81.435);
   --radius: 0.625rem;
   --background: oklch(1 0 0);

@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardContent } from '@/components/ui/card'
 import { Switch } from '@/components/ui/switch'
-import img from '../../../../public/images/shadcn-admin.png'
+import img from '/images/shadcn-admin.png'
 
 export default function FeaturedEvents() {
   return (

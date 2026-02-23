@@ -43,33 +43,36 @@ const chartData = [
 const chartConfig = {
   visitors: {
     label: 'Visitors',
-    color: 'hsl(var(--chart-1))', // ≈ red/pink
+    color: '#de2828', // red
   },
   engagement: {
     label: 'Engagement',
-    color: 'hsl(var(--chart-2))', // ≈ yellow/orange/gold
+    color: '#eab308', // gold/yellow
   },
 } satisfies ChartConfig
 
 export function VisitorsEngagementChart() {
   return (
     <Card className='flex flex-col lg:col-span-4'>
-      <CardHeader className='items-center pb-0'>
-        <CardTitle>Visitors vs Engagement</CardTitle>
-        <CardDescription>Last 7 days performance</CardDescription>
+      <CardHeader className='flex items-center justify-between pb-0'>
+        <div>
+          <CardTitle className='font-antigua'>Visitors vs Engagement</CardTitle>
+          <CardDescription>Last 7 days performance</CardDescription>
+        </div>
+        <div className='flex'>
+          <div className='mb-2 flex items-center text-center text-sm text-muted-foreground'>
+            <span className='inline-flex items-center'>
+              <span className='mr-1.5 size-2 rounded-full bg-[#d40d00]'></span>
+              Visitors
+            </span>
+            <span className='ml-4 inline-flex items-center'>
+              <span className='mr-1.5 size-2 rounded-full bg-[#cf9910]'></span>
+              Engagement
+            </span>
+          </div>
+        </div>
       </CardHeader>
       <CardContent className='flex-1 pb-4'>
-        <div className='mb-2 text-center text-sm text-muted-foreground'>
-          <span className='inline-flex items-center'>
-            <span className='mr-1.5 size-2 rounded-full bg-[hsl(var(--chart-1))]'></span>
-            Visitors
-          </span>
-          <span className='ml-4 inline-flex items-center'>
-            <span className='mr-1.5 size-2 rounded-full bg-[hsl(var(--chart-2))]'></span>
-            Engagement
-          </span>
-        </div>
-
         <ChartContainer
           config={chartConfig}
           className='aspect-auto h-[280px] w-full'
@@ -79,6 +82,22 @@ export function VisitorsEngagementChart() {
               data={chartData}
               margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
             >
+              <defs>
+                <linearGradient id='colorVisitors' x1='0' y1='0' x2='0' y2='1'>
+                  <stop offset='5%' stopColor='#de2828' stopOpacity={0.6} />
+                  <stop offset='95%' stopColor='#de2828' stopOpacity={0} />
+                </linearGradient>
+                <linearGradient
+                  id='colorEngagement'
+                  x1='0'
+                  y1='0'
+                  x2='0'
+                  y2='1'
+                >
+                  <stop offset='5%' stopColor='#eab308' stopOpacity={0.6} />
+                  <stop offset='95%' stopColor='#eab308' stopOpacity={0} />
+                </linearGradient>
+              </defs>
               <CartesianGrid strokeDasharray='3 3' vertical={false} />
               <XAxis
                 dataKey='day'
@@ -99,16 +118,18 @@ export function VisitorsEngagementChart() {
                 dataKey='visitors'
                 stackId='1'
                 stroke='var(--color-visitors)'
-                fill='var(--color-visitors)'
-                fillOpacity={0.4}
+                strokeWidth={2}
+                fill='url(#colorVisitors)'
+                fillOpacity={1}
               />
               <Area
                 type='monotone'
                 dataKey='engagement'
                 stackId='2'
                 stroke='var(--color-engagement)'
-                fill='var(--color-engagement)'
-                fillOpacity={0.4}
+                strokeWidth={2}
+                fill='url(#colorEngagement)'
+                fillOpacity={1}
               />
             </AreaChart>
           </ResponsiveContainer>

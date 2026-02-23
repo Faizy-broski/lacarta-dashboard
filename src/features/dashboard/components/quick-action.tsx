@@ -1,65 +1,67 @@
 // src/components/dashboard/QuickActions.tsx
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { FilePlus, Download, Upload, Calendar, UserPlus, BarChart3 } from "lucide-react"
+import {
+  FilePlus,
+  Download,
+  Upload,
+  Calendar,
+  UserPlus,
+  Users,
+  BarChart3,
+} from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 export function QuickActions() {
   return (
-    <Card className="border-none shadow-sm lg:col-span-3">
-      <CardHeader className="pb-3">
-        <CardTitle className="text-lg font-bold">Quick Actions</CardTitle>
-        <p className="text-sm font-semibold text-muted-foreground">
+    <Card className='h-max shadow-sm lg:col-span-3'>
+      <CardHeader className='pb-3'>
+        <CardTitle className='font-antigua text-lg'>Quick Actions</CardTitle>
+        <p className='text-sm font-semibold text-muted-foreground'>
           Common tasks at your fingertips
         </p>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4">
-          <Button
-            variant="outline"
-            className="h-24 flex flex-col items-center justify-center gap-2 border-0 bg-red-500/10 hover:bg-red-500/20 "
-          >
-            <FilePlus className="h-6 w-6" />
-            New Article
+        <div className='grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3'>
+          <Button className='flex h-24 flex-col items-center justify-center gap-2 rounded-xl border bg-[#a81c1c] bg-gradient-to-b from-[#980001] to-[#D40D00] text-white hover:bg-[#851616]'>
+            <FilePlus className='h-6 w-5' />
+            <span className='text-xs'>New Article</span>
+          </Button>
+
+          <Button className='flex h-24 flex-col items-center justify-center gap-2 rounded-xl border bg-[#1b9a47] bg-gradient-to-l from-[#105F2D] to-[#22C55E] text-white hover:bg-[#137635]'>
+            <Download className='h-6 w-5' />
+            <span className='text-xs'>Download Report</span>
           </Button>
 
           <Button
-            variant="outline"
-            className="h-24 flex flex-col items-center justify-center gap-2 border-0 bg-green-500/10 hover:bg-green-500/20"
+            variant='outline'
+            className='flex h-24 flex-col items-center justify-center gap-2 rounded-xl border'
           >
-            <Download className="h-6 w-6" />
-            Download Report
+            <Upload className='h-6 w-6' />
+            <span className='text-xs'>Upload Media</span>
           </Button>
 
           <Button
-            variant="outline"
-            className="h-24 flex flex-col items-center justify-center gap-2 border-0 "
+            variant='outline'
+            className='flex h-24 flex-col items-center justify-center gap-2 rounded-xl border'
           >
-            <Upload className="h-6 w-6" />
-            Upload Media
+            <Calendar className='h-6 w-6' />
+            <span className='text-xs'>Schedule Post</span>
           </Button>
 
           <Button
-            variant="outline"
-            className="h-24 flex flex-col items-center justify-center gap-2 border-0  "
+            variant='outline'
+            className='flex h-24 flex-col items-center justify-center gap-2 rounded-xl border'
           >
-            <Calendar className="h-6 w-6" />
-            Schedule Post
+            <Users className='h-6 w-6' />
+            <span className='text-xs'>Invite User</span>
           </Button>
 
           <Button
-            variant="outline"
-            className="h-24 flex flex-col items-center justify-center gap-2 border-0 "
+            variant='outline'
+            className='flex h-24 flex-col items-center justify-center gap-2 rounded-xl border'
           >
-            <UserPlus className="h-6 w-6" />
-            Invite User
-          </Button>
-
-          <Button
-            variant="outline"
-            className="h-24 flex flex-col items-center justify-center gap-2 border-0 "
-          >
-            <BarChart3 className="h-6 w-6" />
-            View Reports
+            <BarChart3 className='h-6 w-6' />
+            <span className='text-xs'>View Reports</span>
           </Button>
         </div>
       </CardContent>
