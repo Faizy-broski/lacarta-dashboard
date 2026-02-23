@@ -80,36 +80,31 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 const activities = [
   {
     icon: FileText,
-    iconColor: 'text-red-500',
-    bgColor: 'bg-red-100',
+    iconColor: 'text-[#980001]',
     text: 'New article published: "Hidden Gems of Getsemaní"',
     time: '2 minutes ago',
   },
   {
     icon: UserPlus,
-    iconColor: 'text-green-600',
-    bgColor: 'bg-green-100',
+    iconColor: 'text-[#22C55E]',
     text: 'New contributor joined: Carlos Mendez',
     time: '15 minutes ago',
   },
   {
     icon: MessageSquare,
-    iconColor: 'text-yellow-600',
-    bgColor: 'bg-yellow-100',
+    iconColor: 'text-[#CF9921]',
     text: 'Comment pending review on "Beach Safety Tips"',
     time: '32 minutes ago',
   },
   {
     icon: Image,
-    iconColor: 'text-orange-600',
-    bgColor: 'bg-orange-100',
+    iconColor: 'text-[#CF9921]',
     text: 'Gallery uploaded: "Sunset at Rosario Islands"',
     time: '1 hour ago',
   },
   {
     icon: DollarSign,
-    iconColor: 'text-green-600',
-    bgColor: 'bg-green-100',
+    iconColor: 'text-[#22C55E]',
     text: 'Campaign payment received: $450 from TravelCo',
     time: '2 hours ago',
   },
@@ -129,9 +124,9 @@ export function RecentActivity() {
             <div key={index} className='flex items-start gap-4'>
               {/* ICON */}
               <div
-                className={`flex h-10 w-10 items-center justify-center rounded-full ${activity.bgColor}`}
+                className={`flex items-center justify-center rounded-full bg-muted-foreground/10 p-2`}
               >
-                <Icon className={`h-4 w-4 ${activity.iconColor}`} />
+                <Icon className={`h-5 w-5 ${activity.iconColor}`} />
               </div>
 
               {/* TEXT */}

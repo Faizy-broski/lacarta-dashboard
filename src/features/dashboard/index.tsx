@@ -340,7 +340,7 @@ export function Dashboard() {
           </div> */}
           <TabsContent value='overview' className='space-y-4'>
             <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-6'>
-              <Card className='relative overflow-hidden border-none bg-[#c49b4d] bg-gradient-to-r from-[#CF9921] to-[#D2BB6B] text-white shadow-md'>
+              <Card className='relative overflow-hidden border-none bg-gradient-to-r from-[#CF9921] to-[#D2BB6B] text-white shadow-md'>
                 <CardHeader className='flex flex-row items-center justify-between pb-2'>
                   <div className='rounded-lg bg-white/20 p-2'>
                     <Eye className='h-5 w-5 text-white' />
@@ -352,7 +352,7 @@ export function Dashboard() {
                 </CardHeader>
                 <CardContent className='pt-2'>
                   <p className='mb-0 text-sm text-white/90'>Total Visitors</p>
-                  <div className='font-antigua mb-2 text-[34px] font-bold tracking-tight'>
+                  <div className='font-georgia mb-2 text-[34px] font-bold tracking-tight'>
                     124.5K
                   </div>
                   <p className='relative z-10 text-[10px] text-white/75'>
@@ -362,7 +362,7 @@ export function Dashboard() {
               </Card>
 
               {/* <Card className='relative overflow-hidden border-none bg-[#1a8542] bg-gradient-to-r from-[#980001] to-[#D40D00] text-white shadow-md'> */}
-              <Card className='relative overflow-hidden border-none bg-[#a81c1c] bg-gradient-to-r from-[#22C55E] to-[#105F2D] text-white shadow-md'>
+              <Card className='relative overflow-hidden border-none bg-gradient-to-r from-[#22C55E] to-[#105F2D] text-white shadow-md'>
                 <CardHeader className='flex flex-row items-center justify-between pb-2'>
                   <div className='rounded-lg bg-white/20 p-2'>
                     <Users className='h-5 w-5 text-white' />
@@ -384,7 +384,7 @@ export function Dashboard() {
               </Card>
 
               {/* <Card className='relative overflow-hidden border-none bg-[#a81c1c] bg-gradient-to-r from-[#22C55E] to-[#105F2D] text-white shadow-md'> */}
-              <Card className='relative overflow-hidden border-none bg-[#1a8542] bg-gradient-to-r from-[#980001] to-[#D40D00] text-white shadow-md'>
+              <Card className='relative overflow-hidden border-none bg-gradient-to-r from-[#980001] to-[#D40D00] text-white shadow-md'>
                 <CardHeader className='flex flex-row items-center justify-between pb-2'>
                   <div className='rounded-lg bg-white/20 p-2'>
                     <FileText className='h-5 w-5 text-white' />
@@ -405,7 +405,7 @@ export function Dashboard() {
                 </CardContent>
               </Card>
 
-              <Card className='relative overflow-hidden border-none bg-[#c49b4d] bg-gradient-to-r from-[#CF9921] to-[#D2BB6B] text-white shadow-md'>
+              <Card className='relative overflow-hidden border-none bg-gradient-to-r from-[#CF9921] to-[#D2BB6B] text-white shadow-md'>
                 <CardHeader className='flex flex-row items-center justify-between pb-2'>
                   <div className='rounded-lg bg-white/20 p-2'>
                     <Mail className='h-5 w-5 text-white' />
@@ -425,7 +425,7 @@ export function Dashboard() {
                   </p>
                 </CardContent>
               </Card>
-              <Card className='relative overflow-hidden border-none bg-[#a81c1c] bg-gradient-to-r from-[#22C55E] to-[#105F2D] text-white shadow-md'>
+              <Card className='relative overflow-hidden border-none bg-gradient-to-r from-[#22C55E] to-[#105F2D] text-white shadow-md'>
                 <CardHeader className='flex flex-row items-center justify-between pb-2'>
                   <div className='rounded-lg bg-white/20 p-2'>
                     <LinkIcon className='h-5 w-5 text-white' />
@@ -445,7 +445,7 @@ export function Dashboard() {
                   </p>
                 </CardContent>
               </Card>
-              <Card className='relative overflow-hidden border-none bg-[#1a8542] bg-gradient-to-r from-[#980001] to-[#D40D00] text-white shadow-md'>
+              <Card className='relative overflow-hidden border-none bg-gradient-to-r from-[#980001] to-[#D40D00] text-white shadow-md'>
                 <CardHeader className='flex flex-row items-center justify-between pb-2'>
                   <div className='rounded-lg bg-white/20 p-2'>
                     <Clock className='h-5 w-5 text-white' />

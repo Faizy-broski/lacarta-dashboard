@@ -16,7 +16,9 @@ export function Subscription() {
 
       <Main>
         <div className='mb-2 space-y-2'>
-          <h1 className='text-2xl font-bold tracking-tight'>Subscription</h1>
+          <h1 className='font-antigua text-3xl font-bold tracking-tight'>
+            Subscription
+          </h1>
           <p className='mb-10 text-xs text-muted-foreground'>
             Manage Plans, Pricings, Limits and Access.
           </p>

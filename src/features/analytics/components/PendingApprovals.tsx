@@ -49,7 +49,7 @@
 //   )
 // }
 // components/dashboard/PendingApprovals.tsx
-import { Clock } from 'lucide-react'
+import { CircleAlert } from 'lucide-react'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 
 const approvals = [
@@ -76,7 +76,7 @@ export function PendingApprovals() {
             Pending Approvals
           </h3>
 
-          <span className='rounded-full bg-yellow-100 px-3 py-0.5 text-xs font-medium text-yellow-700'>
+          <span className='rounded-full bg-[#CF9921]/10 px-3 py-0.5 text-xs font-medium text-[#CF9921]'>
             23 items
           </span>
         </div>
@@ -93,8 +93,8 @@ export function PendingApprovals() {
             className='flex items-center gap-4 rounded-xl bg-gray-100 p-4'
           >
             {/* Icon */}
-            <div className='flex h-10 w-10 items-center justify-center rounded-full bg-yellow-100'>
-              <Clock className='h-4 w-4 text-yellow-700' />
+            <div className='flex h-10 w-10 items-center justify-center rounded-full bg-[#CF9921]/10'>
+              <CircleAlert className='h-4 w-4 text-[#CF9921]' />
             </div>
 
             {/* Text */}

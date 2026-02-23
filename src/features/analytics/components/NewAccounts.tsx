@@ -132,7 +132,7 @@
 //   )
 // }
 // components/dashboard/AccountStats.tsx
-import { Users, ChevronDown } from 'lucide-react'
+import { Users, ChevronDown, TrendingUp } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 
 export function AccountStats() {
@@ -159,7 +159,7 @@ export function AccountStats() {
             <div className='flex items-center gap-3'>
               <span className='text-4xl font-semibold text-gray-900'>847</span>
               <span className='flex items-center gap-1 font-medium text-green-600'>
-                ↗ +12.5%
+                <TrendingUp className='h-3 w-3' /> +12.5%
               </span>
             </div>
 
@@ -210,7 +210,8 @@ export function AccountStats() {
             <div className='flex items-center gap-3'>
               <span className='text-4xl font-semibold text-gray-900'>447</span>
               <span className='flex items-center gap-1 font-medium text-yellow-600'>
-                ↗ +12.5%
+                <TrendingUp className='h-3 w-3' />
+                +12.5%
               </span>
             </div>
 

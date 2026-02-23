@@ -1,58 +1,72 @@
-import PlanCard from "./PlanCard"
+import { Package, User, Star, Crown, Sparkles } from 'lucide-react'
+import PlanCard from './PlanCard'
 
 export default function PlanGrid() {
   return (
-    <section className="space-y-4 my-4">
-      <h2 className="text-xl font-semibold">Plan Overview</h2>
+    <section className='my-4 space-y-4'>
+      <h2 className='font-antigua flex items-center text-xl font-semibold'>
+        <Package className='mr-2 h-5 w-5 text-muted-foreground' /> Plan Overview
+      </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4'>
         <PlanCard
-          title="Free"
-          price="$0"
-          subtitle="Free"
+          title='Free'
+          price='$0'
+          icon={<User />}
           features={[
-            "5 posts per month",
-            "1 real estate listing",
-            "Basic support",
+            '5 posts per month',
+            '1 real estate listing',
+            'Basic support',
+            '2 images per listing',
+            'Comunity access',
           ]}
-          accent="gray"
+          bg='bg-gradient-to-r from-[#65758B] to-[#808EA3]'
+          text='Downgrade'
         />
 
         <PlanCard
-          title="Standard"
-          price="$19"
-          subtitle="7 days free trial"
+          title='Standard'
+          price='$19'
+          subtitle='7 days free trial'
+          icon={<Star />}
           features={[
-            "25 posts per month",
-            "10 real estate listings",
-            "Email support",
+            '25 posts per month',
+            '10 real estate listings',
+            'Email support',
+            '10 images per listing',
+            'Basic analytics',
           ]}
-          accent="gold"
+          bg='bg-gradient-to-r from-[#CF9921] to-[#D2BB6B]'
+          text='Downgrade'
         />
 
         <PlanCard
-          title="Premium"
-          price="$49"
-          subtitle="14 days free trial"
+          title='Premium'
+          price='$49'
+          icon={<Crown />}
+          subtitle='14 days free trial'
           features={[
-            "100 posts per month",
-            "Priority support",
-            "Advanced analytics",
+            '100 posts per month',
+            'Priority support',
+            'Advanced analytics',
           ]}
-          accent="red"
+          bg='bg-gradient-to-r from-[#980001] to-[#D40D00]'
           active
+          text='Manage'
         />
 
         <PlanCard
-          title="Elite"
-          price="$99"
-          subtitle="30 days free trial"
+          title='Elite'
+          price='$99'
+          icon={<Sparkles />}
+          subtitle='30 days free trial'
           features={[
-            "Unlimited posts",
-            "Dedicated support",
-            "Full analytics suite",
+            'Unlimited posts',
+            'Dedicated support',
+            'Full analytics suite',
           ]}
-          accent="green"
+          bg='bg-gradient-to-r from-[#008000] to-[#105F2D]'
+          text='Upgrade'
         />
       </div>
     </section>
