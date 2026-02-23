@@ -65,7 +65,7 @@ export default function PlanGrid() {
             'Dedicated support',
             'Full analytics suite',
           ]}
-          bg='bg-gradient-to-r from-[#008000] to-[#105F2D]'
+          bg='bg-gradient-to-r from-[#22C55E] to-[#105F2D]'
           text='Upgrade'
         />
       </div>

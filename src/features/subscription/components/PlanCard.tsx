@@ -164,7 +164,14 @@ export default function PlanCard({
           View
         </Button>
 
-        <Button className='w-full rounded-lg bg-gradient-to-r from-[#CF9921] to-[#D2BB6B] text-white hover:from-yellow-600 hover:to-yellow-700 sm:flex-1'>
+        <Button
+          className={cn(
+            'w-full rounded-lg text-white hover:from-yellow-600 hover:to-yellow-700 sm:flex-1',
+            text === 'Manage'
+              ? 'bg-gradient-to-r from-[#22C55E] to-[#105F2D]'
+              : 'bg-gradient-to-r from-[#CF9921] to-[#D2BB6B]'
+          )}
+        >
           {text}
         </Button>
       </CardFooter>
