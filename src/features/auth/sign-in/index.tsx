@@ -1,5 +1,6 @@
 // import { useSearch } from '@tanstack/react-router'
 // import { useSearchParams,  useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {
   Card,
   CardContent,
@@ -20,37 +21,43 @@ export function SignIn() {
 
   return (
     // <AuthLayout>
-      <Card className='gap-4'>
-        <CardHeader>
-          <CardTitle className='text-lg tracking-tight'>Sign in</CardTitle>
-          <CardDescription>
-            Enter your email and password below to <br />
-            log into your account
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <UserAuthForm  />
-        </CardContent>
-        <CardFooter>
-          <p className='px-8 text-center text-sm text-muted-foreground'>
-            By clicking sign in, you agree to our{' '}
-            <a
-              href='/terms'
-              className='underline underline-offset-4 hover:text-primary'
-            >
-              Terms of Service
-            </a>{' '}
-            and{' '}
-            <a
-              href='/privacy'
-              className='underline underline-offset-4 hover:text-primary'
-            >
-              Privacy Policy
-            </a>
-            .
-          </p>
-        </CardFooter>
-      </Card>
+    <Card className='gap-4'>
+      <CardHeader>
+        <CardTitle className='text-lg tracking-tight'>Sign in</CardTitle>
+        <CardDescription>
+          Enter your email and password to login to your account. <br />
+          New to Lacarta?{' '}
+          <Link
+            to='/sign-up'
+            className='underline underline-offset-4 hover:text-primary'
+          >
+            Sign Up
+          </Link>
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <UserAuthForm />
+      </CardContent>
+      {/* <CardFooter>
+        <p className='px-8 text-center text-sm text-muted-foreground'>
+          By clicking sign in, you agree to our{' '}
+          <a
+            href='/terms'
+            className='underline underline-offset-4 hover:text-primary'
+          >
+            Terms of Service
+          </a>{' '}
+          and{' '}
+          <a
+            href='/privacy'
+            className='underline underline-offset-4 hover:text-primary'
+          >
+            Privacy Policy
+          </a>
+          .
+        </p>
+      </CardFooter> */}
+    </Card>
     // </AuthLayout>
   )
 }

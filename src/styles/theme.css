@@ -1,7 +1,12 @@
 :root {
   --font-antigua: 'antigua', sans-serif;
   --font-georgia: 'georgia', sans-serif;
+  --green: oklch(72.276% 0.19199 149.6);
+  --green-light: oklch(42.759% 0.10868 150.327);
   --gold: oklch(71.616% 0.13918 81.435);
+  --gold-light: oklch(79.459% 0.10364 93.803);
+  --red: oklch(42.684% 0.17506 29.047);
+  --red-light: oklch(54.929% 0.2213 29.837);
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
@@ -89,7 +94,12 @@
 }
 
 @theme inline {
+  --color-green: var(--green);
+  --color-green-light: var(--green-light);
   --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-red: var(--red);
+  --color-red-light: var(--red-light);
   --font-inter: 'Inter', 'sans-serif';
   --font-manrope: 'Manrope', 'sans-serif';
 

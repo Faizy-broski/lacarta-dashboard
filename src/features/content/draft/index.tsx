@@ -1,41 +1,35 @@
-import { ReceiptText, 
-  // Plus
- } from 'lucide-react'
+import { Compass, Plus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import {
-  Tabs,
-  TabsContent,
-  // TabsList, TabsTrigger
-} from '@/components/ui/tabs'
-
+import { Tabs, TabsContent } from '@/components/ui/tabs'
 import { Main } from '@/components/layout/main'
-// import { ProfileDropdown } from '@/components/profile-dropdown'
-// import { Search } from '@/components/search'
-// import { ThemeSwitch } from '@/components/theme-switch'
-
-import DraftCard from './DraftCard'
 import TabsPage from '../components/tabs'
+import QuickActionCard from '../quickActions/QuickActionCard'
+import ArticleTable from './../article/ArticleTable'
+import CategoryCard from './../category/CategoryCard'
+import DraftCard from './../draft/DraftCard'
+import FeaturedStoryCard from './../featured/FeaturedStoryCard'
+import TravelToolCard from './../travelTool/TravelToolCard'
 
 export function DraftContent() {
   return (
     <>
-    
-
       <Main>
-        <div className='mb-10 flex items-center justify-between space-y-2'>
+        <div className='mb-5 flex items-center justify-between space-y-2'>
           <div>
-            <h1 className='text-2xl font-bold tracking-tight'>Drafts</h1>
-            <p className='text-xs text-muted-foreground'>
-              Manage all Drafts across Lacarta.
+            <h1 className='font-antigua text-2xl font-bold tracking-tight'>
+              Content
+            </h1>
+            <p className='text-sm text-muted-foreground'>
+              Manage all editorial content across Lacarta
             </p>
           </div>
-          <div>
-            <Button className='mr-1 border bg-gray-100 text-black shadow hover:bg-black hover:text-white'>
-              <ReceiptText size={30} />
+          <div className='flex gap-4'>
+            <Button className='border bg-gray-100 text-black shadow hover:bg-gray-100 hover:text-black'>
+              <Compass />
               Travel Tool
             </Button>
-            <Button className='mr-1 border bg-gray-100 text-black shadow hover:bg-black hover:text-white'>
-              <ReceiptText size={30} /> New Drafts
+            <Button className='bg-gradient-to-r from-[#CF9921] to-[#D2BB6B] text-white shadow hover:bg-black hover:text-white'>
+              <Plus size={30} /> New Article
             </Button>
           </div>
         </div>
@@ -49,9 +43,25 @@ export function DraftContent() {
           </TabsContent>
         </Tabs>
 
-        
-          <DraftCard />
-       
+        <ArticleTable />
+
+        {/* DRAFTS */}
+
+        <DraftCard />
+
+        {/* CATEGORIES */}
+
+        <CategoryCard />
+
+        {/* FEATURED STORIES */}
+        <FeaturedStoryCard />
+
+        {/* TRAVEL TOOLS */}
+
+        <TravelToolCard />
+
+        {/* QUICKACTIONS */}
+        <QuickActionCard />
       </Main>
     </>
   )

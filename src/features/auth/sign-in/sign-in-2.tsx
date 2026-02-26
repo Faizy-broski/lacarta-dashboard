@@ -11,7 +11,7 @@ export function SignIn2() {
         <div className='mx-auto flex w-full flex-col justify-center space-y-2 py-8 sm:w-[480px] sm:p-8'>
           <div className='mb-4 flex items-center justify-center'>
             <Logo className='me-2' />
-            <h1 className='text-xl font-medium'>Shadcn Admin</h1>
+            <h1 className='text-xl font-medium'>Lacarta Admin</h1>
           </div>
         </div>
         <div className='mx-auto flex w-full max-w-sm flex-col justify-center space-y-2'>
@@ -23,7 +23,7 @@ export function SignIn2() {
             </p>
           </div>
           <UserAuthForm redirectTo={'/'} />
-          <p className='px-8 text-center text-sm text-muted-foreground'>
+          {/* <p className='px-8 text-center text-sm text-muted-foreground'>
             By clicking sign in, you agree to our{' '}
             <a
               href='/terms'
@@ -39,7 +39,7 @@ export function SignIn2() {
               Privacy Policy
             </a>
             .
-          </p>
+          </p> */}
         </div>
       </div>
 
@@ -54,14 +54,14 @@ export function SignIn2() {
           className='dark:hidden'
           width={1024}
           height={1151}
-          alt='Shadcn-Admin'
+          alt='Lacarta-Admin'
         />
         <img
           src={dashboardDark}
           className='hidden dark:block'
           width={1024}
           height={1138}
-          alt='Shadcn-Admin'
+          alt='Lacarta-Admin'
         />
       </div>
     </div>

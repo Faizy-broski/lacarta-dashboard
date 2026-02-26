@@ -121,12 +121,15 @@ export function UserAuthForm({
             </FormItem>
           )}
         />
-        <Button className='mt-2' disabled={isLoading}>
+        <Button
+          className='mt-2 bg-gradient-to-r from-[#CF9921] to-[#D2BB6B]'
+          disabled={isLoading}
+        >
           {isLoading ? <Loader2 className='animate-spin' /> : <LogIn />}
           Sign in
         </Button>
 
-        <div className='relative my-2'>
+        {/* <div className='relative my-2'>
           <div className='absolute inset-0 flex items-center'>
             <span className='w-full border-t' />
           </div>
@@ -144,7 +147,7 @@ export function UserAuthForm({
           <Button variant='outline' type='button' disabled={isLoading}>
             <IconFacebook className='h-4 w-4' /> Facebook
           </Button>
-        </div>
+        </div> */}
       </form>
     </Form>
   )

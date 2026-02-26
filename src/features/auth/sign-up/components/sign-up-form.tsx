@@ -2,8 +2,11 @@ import { useState } from 'react'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'sonner'
 import { IconFacebook, IconGithub } from '@/assets/brand-icons'
-import { cn } from '@/lib/utils'
+import { useAuthStore } from '@/stores/auth-store'
+import { sleep, cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -38,6 +41,8 @@ export function SignUpForm({
   ...props
 }: React.HTMLAttributes<HTMLFormElement>) {
   const [isLoading, setIsLoading] = useState(false)
+  const navigate = useNavigate()
+  const { auth } = useAuthStore()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -50,12 +55,32 @@ export function SignUpForm({
 
   function onSubmit(data: z.infer<typeof formSchema>) {
     setIsLoading(true)
-    // eslint-disable-next-line no-console
-    console.log(data)
 
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 3000)
+    toast.promise(sleep(2000), {
+      loading: 'Signing in...',
+      success: () => {
+        setIsLoading(false)
+
+        // Mock successful authentication with expiry computed at success time
+        const mockUser = {
+          accountNo: 'ACC001',
+          email: data.email,
+          role: ['user'],
+          exp: Date.now() + 24 * 60 * 60 * 1000, // 24 hours from now
+        }
+
+        // Set user and access token
+        auth.setUser(mockUser)
+        auth.setAccessToken('mock-access-token')
+
+        // Redirect to the stored location or default to dashboard
+        const targetPath = '/'
+        navigate(targetPath, { replace: true })
+
+        return `Welcome back, ${data.email}!`
+      },
+      error: 'Error',
+    })
   }
 
   return (
@@ -104,11 +129,14 @@ export function SignUpForm({
             </FormItem>
           )}
         />
-        <Button className='mt-2' disabled={isLoading}>
-          Create Account
+        <Button
+          className='mt-2 bg-gradient-to-r from-[#CF9921] to-[#D2BB6B]'
+          disabled={isLoading}
+        >
+          Sign up
         </Button>
 
-        <div className='relative my-2'>
+        {/* <div className='relative my-2'>
           <div className='absolute inset-0 flex items-center'>
             <span className='w-full border-t' />
           </div>
@@ -136,7 +164,7 @@ export function SignUpForm({
           >
             <IconFacebook className='h-4 w-4' /> Facebook
           </Button>
-        </div>
+        </div> */}
       </form>
     </Form>
   )
