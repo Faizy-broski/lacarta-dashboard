@@ -41,8 +41,7 @@ import {FeatureContent} from '@/features/content/featured'
 import {TravelToolContent} from '@/features/content/travelTool'
 import {AnalyticsPage} from '@/features/analytics/index'
 import {OwnerListingEditorPage} from '@/features/Owner-Page/index'
-
-
+import {CategoryPage} from '@/features/categories/index'
 
 function ErrorComponent() {
   const { error } = useParams<{ error?: string }>()
@@ -76,6 +75,12 @@ function ErrorComponent() {
 export default (
   <Route element={<ProtectedLayout />}>
     <Route index element={<Dashboard />} />
+    <Route path='/owner/dashboard' element={<Dashboard />} />
+    <Route path='/admin/dashboard' element={<Dashboard />} />
+    <Route path='/assistant/dashboard' element={<Dashboard />} />
+    <Route path='/editor/dashboard' element={<Dashboard />} />
+    <Route path='/client/dashboard' element={<Dashboard />} />
+    <Route path='/subscriber/dashboard' element={<Dashboard />} />
     <Route path='/users' element={<Users />} />
     <Route path='/tasks' element={<Tasks />} />
     <Route path='/chats' element={<Chats />} />
@@ -87,6 +92,7 @@ export default (
     <Route path='/deals/active-deals' element={<ActiveDealsPage />} />
     <Route path='/analytics/admin-analytics' element={<AnalyticsPage />} />
     <Route path='/analytics/owner-analytics' element={<OwnerListingEditorPage />} />
+    <Route path='/categories' element={<CategoryPage />}/>
     
 
     <Route path='/content' element={<ContentPage />}>

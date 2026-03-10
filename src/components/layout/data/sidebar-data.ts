@@ -319,6 +319,11 @@ export const sidebarData: any = {
             },
           ],
         },
+        {
+          title: 'Categories',
+          url: '/categories',
+          icon: Package,
+        },
       // ],
     // },
 

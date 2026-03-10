@@ -51,7 +51,14 @@
 }
 
 .dark {
+    --font-antigua: 'antigua', sans-serif;
+  --font-georgia: 'georgia', sans-serif;
+  --green: oklch(72.276% 0.19199 149.6);
+  --green-light: oklch(42.759% 0.10868 150.327);
   --gold: oklch(71.616% 0.13918 81.435);
+  --gold-light: oklch(79.459% 0.10364 93.803);
+  --red: oklch(42.684% 0.17506 29.047);
+  --red-light: oklch(54.929% 0.2213 29.837);
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.14 0.04 259.21);

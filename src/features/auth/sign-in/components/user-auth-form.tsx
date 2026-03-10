@@ -3,12 +3,11 @@ import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Loader2, LogIn } from 'lucide-react'
-// import { Link, useNavigate } from '@tanstack/react-router'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
-import { IconFacebook, IconGithub } from '@/assets/brand-icons'
+import { supabase } from '@/lib/supabase'
 import { useAuthStore } from '@/stores/auth-store'
-import { sleep, cn } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -21,10 +20,34 @@ import {
 import { Input } from '@/components/ui/input'
 import { PasswordInput } from '@/components/password-input'
 
+type UserRole = 'owner' | 'admin' | 'assistant' | 'editor' | 'client' | 'subscriber'
+
+const ROLE_REDIRECT: Record<UserRole, string> = {
+  owner: '/owner/dashboard',
+  admin: '/admin/dashboard',
+  assistant: '/assistant/dashboard',
+  editor: '/editor/dashboard',
+  client: '/client/dashboard',
+  subscriber: '/subscriber/dashboard',
+}
+
+function getAuthErrorMessage(code: string): string {
+  switch (code) {
+    case 'invalid_credentials':
+      return 'Invalid email or password. Please try again.'
+    case 'email_not_confirmed':
+      return 'Please verify your email before signing in.'
+    case 'user_not_found':
+      return 'No account found with this email.'
+    case 'too_many_requests':
+      return 'Too many attempts. Please try again later.'
+    default:
+      return 'Sign in failed. Please try again.'
+  }
+}
+
 const formSchema = z.object({
-  email: z.email({
-    error: (iss) => (iss.input === '' ? 'Please enter your email' : undefined),
-  }),
+  email: z.string().min(1, 'Please enter your email').email('Invalid email address'),
   password: z
     .string()
     .min(1, 'Please enter your password')
@@ -35,11 +58,7 @@ interface UserAuthFormProps extends React.HTMLAttributes<HTMLFormElement> {
   redirectTo?: string
 }
 
-export function UserAuthForm({
-  className,
-  redirectTo,
-  ...props
-}: UserAuthFormProps) {
+export function UserAuthForm({ className, redirectTo, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
   const { auth } = useAuthStore()
@@ -52,34 +71,58 @@ export function UserAuthForm({
     },
   })
 
-  function onSubmit(data: z.infer<typeof formSchema>) {
+  async function onSubmit(data: z.infer<typeof formSchema>) {
     setIsLoading(true)
 
-    toast.promise(sleep(2000), {
-      loading: 'Signing in...',
-      success: () => {
-        setIsLoading(false)
-
-        // Mock successful authentication with expiry computed at success time
-        const mockUser = {
-          accountNo: 'ACC001',
-          email: data.email,
-          role: ['user'],
-          exp: Date.now() + 24 * 60 * 60 * 1000, // 24 hours from now
-        }
-
-        // Set user and access token
-        auth.setUser(mockUser)
-        auth.setAccessToken('mock-access-token')
-
-        // Redirect to the stored location or default to dashboard
-        const targetPath = redirectTo || '/'
-        navigate(targetPath, { replace: true })
-
-        return `Welcome back, ${data.email}!`
-      },
-      error: 'Error',
+    const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
+      email: data.email,
+      password: data.password,
     })
+
+    if (signInError || !signInData.user) {
+      const code = (signInError as any)?.code ?? ''
+      toast.error(getAuthErrorMessage(code))
+      setIsLoading(false)
+      return
+    }
+
+    const { data: userData, error: userError } = await supabase
+      .from('users')
+      .select('role')
+      .eq('id', signInData.user.id)
+      .single()
+
+    if (userError || !userData) {
+      toast.error('Could not fetch user role. Please contact support.')
+      await supabase.auth.signOut()
+      setIsLoading(false)
+      return
+    }
+
+    const role = userData.role as UserRole
+    const redirectPath = ROLE_REDIRECT[role]
+
+    if (!redirectPath) {
+      toast.error('Unknown role assigned. Please contact support.')
+      await supabase.auth.signOut()
+      setIsLoading(false)
+      return
+    }
+
+    auth.setUser({
+      accountNo: signInData.user.id,
+      email: signInData.user.email ?? '',
+      role: [role],
+      exp: Date.now() + 24 * 60 * 60 * 1000,
+    })
+
+    auth.setAccessToken(signInData.session?.access_token ?? '')
+
+    toast.success(`Welcome back, ${signInData.user.email}!`)
+
+    setIsLoading(false)
+
+    navigate(redirectTo || redirectPath, { replace: true })
   }
 
   return (
@@ -128,26 +171,6 @@ export function UserAuthForm({
           {isLoading ? <Loader2 className='animate-spin' /> : <LogIn />}
           Sign in
         </Button>
-
-        {/* <div className='relative my-2'>
-          <div className='absolute inset-0 flex items-center'>
-            <span className='w-full border-t' />
-          </div>
-          <div className='relative flex justify-center text-xs uppercase'>
-            <span className='bg-background px-2 text-muted-foreground'>
-              Or continue with
-            </span>
-          </div>
-        </div>
-
-        <div className='grid grid-cols-2 gap-2'>
-          <Button variant='outline' type='button' disabled={isLoading}>
-            <IconGithub className='h-4 w-4' /> GitHub
-          </Button>
-          <Button variant='outline' type='button' disabled={isLoading}>
-            <IconFacebook className='h-4 w-4' /> Facebook
-          </Button>
-        </div> */}
       </form>
     </Form>
   )
