@@ -13,38 +13,38 @@ import { Header } from '@/components/layout/header'
 import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
 import { ThemeSwitch } from '@/components/theme-switch'
+import { OwnerListingEditorPage } from '@/features/Owner-Page/index'
+import { AnalyticsPage } from '@/features/analytics/index'
 import { Apps } from '@/features/apps/index'
+import { CategoryPage } from '@/features/categories/index'
 import { Chats } from '@/features/chats/index'
+import { ArticleContent } from '@/features/content/article'
+import { CategoryContent } from '@/features/content/category'
+import { DraftContent } from '@/features/content/draft'
+import { FeatureContent } from '@/features/content/featured'
+import { ContentPage } from '@/features/content/index'
+import { TravelToolContent } from '@/features/content/travelTool'
 import { Dashboard } from '@/features/dashboard/index'
+import { ActiveDealsPage } from '@/features/deals-page/activeDealsPage'
+import { DealsPage } from '@/features/deals-page/index'
 import { ForbiddenError } from '@/features/errors/forbidden'
 import { GeneralError } from '@/features/errors/general-error'
 import { MaintenanceError } from '@/features/errors/maintenance-error'
 import { NotFoundError } from '@/features/errors/not-found-error'
 import { UnauthorisedError } from '@/features/errors/unauthorized-error'
+import { Events } from '@/features/events and calender/index'
+import { ListingDetailPage } from '@/features/listings/ListingDetailPage'
+import { ListingFormPage } from '@/features/listings/ListingFormPage'
+import { ListingsPage } from '@/features/listings/index'
 import { SettingsAccount } from '@/features/settings/account'
 import { SettingsAppearance } from '@/features/settings/appearance'
 import { SettingsDisplay } from '@/features/settings/display'
 import { Settings } from '@/features/settings/index'
 import { SettingsNotifications } from '@/features/settings/notifications'
 import { SettingsProfile } from '@/features/settings/profile'
+import { Subscription } from '@/features/subscription/index'
 import { Tasks } from '@/features/tasks/index'
 import { Users } from '@/features/users/index'
-import { Subscription } from '@/features/subscription/index'
-import { Events } from '@/features/events and calender/index'
-import {DealsPage} from '@/features/deals-page/index'
-import {ActiveDealsPage} from '@/features/deals-page/activeDealsPage'
-import {ContentPage} from '@/features/content/index'
-import {ArticleContent} from '@/features/content/article'
-import {DraftContent} from '@/features/content/draft'
-import {CategoryContent} from '@/features/content/category'
-import {FeatureContent} from '@/features/content/featured'
-import {TravelToolContent} from '@/features/content/travelTool'
-import {AnalyticsPage} from '@/features/analytics/index'
-import {OwnerListingEditorPage} from '@/features/Owner-Page/index'
-import {CategoryPage} from '@/features/categories/index'
-import { ListingsPage } from '@/features/listings/index'
-import { ListingFormPage } from '@/features/listings/ListingFormPage'
-import { ListingDetailPage } from '@/features/listings/ListingDetailPage'
 
 function ErrorComponent() {
   const { error } = useParams<{ error?: string }>()
@@ -94,13 +94,15 @@ export default (
     <Route path='/deals/all-deals' element={<DealsPage />} />
     <Route path='/deals/active-deals' element={<ActiveDealsPage />} />
     <Route path='/analytics/admin-analytics' element={<AnalyticsPage />} />
-    <Route path='/analytics/owner-analytics' element={<OwnerListingEditorPage />} />
-    <Route path='/categories' element={<CategoryPage />}/>
-     <Route path='/listings' element={<ListingsPage />} />
-        <Route path='/listings/create' element={<ListingFormPage />} />
-        <Route path='/listings/:id' element={<ListingDetailPage />} />
-        <Route path='/listings/:id/edit' element={<ListingFormPage />} />
-
+    <Route
+      path='/analytics/owner-analytics'
+      element={<OwnerListingEditorPage />}
+    />
+    <Route path='/categories' element={<CategoryPage />} />
+    <Route path='/listings' element={<ListingsPage />} />
+    <Route path='/listings/create' element={<ListingFormPage />} />
+    <Route path='/listings/:id' element={<ListingDetailPage />} />
+    <Route path='/listings/:id/edit' element={<ListingFormPage />} />
 
     <Route path='/content' element={<ContentPage />}>
       <Route index element={<ArticleContent />} />
