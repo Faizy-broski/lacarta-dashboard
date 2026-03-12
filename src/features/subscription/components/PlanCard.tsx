@@ -5,9 +5,12 @@ import {
   EllipsisVertical,
   Sparkles,
   Star,
+<<<<<<< HEAD
   CircleDollarSign,
   Banknote,
   Coins,
+=======
+>>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
   User,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -70,7 +73,11 @@ export default function PlanCard({
   const isActive = status === 'active'
 
   return (
+<<<<<<< HEAD
     <Card className='flex h-full flex-col overflow-hidden rounded-sm border p-0'>
+=======
+    <Card className='flex h-full flex-col overflow-hidden rounded-2xl border p-0'>
+>>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
       {/* HEADER */}
       <div
         className={`overflow-hidden rounded-t-sm px-3 py-4 text-white shadow-inner ${bg}`}
@@ -95,11 +102,19 @@ export default function PlanCard({
               >
                 {isActive ? 'Active' : 'Inactive'}
               </Badge>
+<<<<<<< HEAD
               {/* {isAdminFree && (
                 <Badge className='rounded-full bg-white/20 px-2 text-[10px] text-white'>
                   Admin Free
                 </Badge>
               )} */}
+=======
+              {isAdminFree && (
+                <Badge className='rounded-full bg-white/20 px-2 text-[10px] text-white'>
+                  Admin Free
+                </Badge>
+              )}
+>>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
             </div>
           </div>
           <EllipsisVertical className='ml-auto' />
@@ -110,18 +125,28 @@ export default function PlanCard({
       <CardContent className='px-6 sm:px-3'>
         {/* PRICE */}
         <div>
+<<<<<<< HEAD
           <div className='flex items-end'>
             <span>
               <span className='text-xs text-slate-500 sm:text-sm'>COP </span>
               <span className={`text-3xl font-bold`}>
                 {Number(monthlyPrice).toFixed(0)}
               </span>
+=======
+          <div className='flex items-end gap-1'>
+            <span className={`text-3xl font-bold sm:text-4xl ${priceColor}`}>
+              ${Number(monthlyPrice).toFixed(0)}
+>>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
             </span>
             <span className='text-xs text-slate-500 sm:text-sm'>/month</span>
           </div>
           <div className='mt-1 flex items-center gap-2'>
             <span className='text-xs text-muted-foreground'>
+<<<<<<< HEAD
               COP {Number(yearlyPrice).toFixed(0)}/year
+=======
+              ${Number(yearlyPrice).toFixed(0)}/year
+>>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
             </span>
             {yearlyDiscount > 0 && (
               <Badge className='rounded-full bg-emerald-100 px-1.5 py-0 text-[10px] text-emerald-700'>
@@ -145,7 +170,11 @@ export default function PlanCard({
           ) : (
             <ul className='space-y-2'>
               {features.map((item) => (
+<<<<<<< HEAD
                 <li key={item} className='flex items-start gap-3 text-xs'>
+=======
+                <li key={item} className='flex items-start gap-3'>
+>>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
                   <Check className='mt-0.5 h-4 w-4 shrink-0 text-emerald-500' />
                   <span>{item}</span>
                 </li>
@@ -167,8 +196,13 @@ export default function PlanCard({
 
         <Button
           className={cn(
+<<<<<<< HEAD
             'w-full rounded-md text-xs text-white sm:flex-1',
             'bg-gradient-to-r from-[#CF9921] to-[#D2BB6B] font-normal hover:from-yellow-600 hover:to-yellow-700'
+=======
+            'w-full rounded-lg text-white sm:flex-1',
+            'bg-gradient-to-r from-[#CF9921] to-[#D2BB6B] hover:from-yellow-600 hover:to-yellow-700'
+>>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
           )}
         >
           {isActive ? 'Manage' : 'Upgrade'}
