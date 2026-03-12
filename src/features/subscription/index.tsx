@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import { useAuthStore } from '@/lib/auth/auth.store'
-=======
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
 import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
 import AccessControl from './components/AccessControl'
@@ -33,7 +30,6 @@ export function Subscription() {
           </p>
         </div>
 
-<<<<<<< HEAD
         {/* ===== Client-Facing: Plan cards + Payment ===== */}
         {(isClient || isOwner) && (
           <>
@@ -59,25 +55,6 @@ export function Subscription() {
             <FeaturesLibrary />
           </>
         )}
-=======
-        {/* ===== User-Facing ===== */}
-        <PlanGrid />
-        <PaymentForm />
-        <AccessControl />
-
-        {/* ===== Admin Management ===== */}
-        <hr className='my-8 border-dashed' />
-        <div className='mb-2 space-y-1'>
-          <h1 className='font-antigua text-2xl font-bold tracking-tight'>
-            Admin Management
-          </h1>
-          <p className='text-xs text-muted-foreground'>
-            Configure tiers, pricing rules, features and access control.
-          </p>
-        </div>
-        <TierPricingPanel />
-        <FeaturesLibrary />
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
       </Main>
     </>
   )

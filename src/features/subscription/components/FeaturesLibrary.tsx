@@ -1,11 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Sparkles, Pencil, Plus, Trash2 } from 'lucide-react'
-<<<<<<< HEAD
 import { toast } from 'sonner'
 import { supabase } from '@/lib/supabase/supabase'
-=======
-import { supabase } from '@/lib/supabase'
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -49,11 +45,7 @@ type Feature = {
   id: string
   slug: string
   label: string
-<<<<<<< HEAD
   // description: string | null
-=======
-  description: string | null
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
   category_scope: CategoryScope
   created_at: string
 }
@@ -81,11 +73,7 @@ const scopeColors: Record<CategoryScope, string> = {
 const emptyForm = {
   label: '',
   slug: '',
-<<<<<<< HEAD
   // description: '',
-=======
-  description: '',
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
   category_scope: 'all' as CategoryScope,
 }
 
@@ -134,11 +122,7 @@ export default function FeaturesLibrary() {
     setForm({
       label: f.label,
       slug: f.slug,
-<<<<<<< HEAD
       // description: f.description ?? '',
-=======
-      description: f.description ?? '',
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
       category_scope: f.category_scope,
     })
     setDialogOpen(true)
@@ -146,7 +130,6 @@ export default function FeaturesLibrary() {
 
   async function save() {
     if (!form.slug.trim() || !form.label.trim()) return
-<<<<<<< HEAD
 
     const slugTrimmed = form.slug.trim()
     const labelTrimmed = form.label.trim()
@@ -206,21 +189,6 @@ export default function FeaturesLibrary() {
     setDialogOpen(false)
     fetchFeatures()
     fetchTierCounts()
-=======
-    const payload = {
-      slug: form.slug.trim(),
-      label: form.label.trim(),
-      description: form.description || null,
-      category_scope: form.category_scope,
-    }
-    if (editingId) {
-      await supabase.from('features').update(payload).eq('id', editingId)
-    } else {
-      await supabase.from('features').insert(payload)
-    }
-    setDialogOpen(false)
-    fetchFeatures()
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
   }
 
   async function remove(id: string) {
@@ -267,11 +235,7 @@ export default function FeaturesLibrary() {
                   <TableHead>Slug</TableHead>
                   <TableHead>Scope</TableHead>
                   <TableHead>Used by</TableHead>
-<<<<<<< HEAD
                   {/* <TableHead className='max-w-[200px]'>Description</TableHead> */}
-=======
-                  <TableHead className='max-w-[200px]'>Description</TableHead>
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
                   <TableHead className='text-right'>Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -326,15 +290,9 @@ export default function FeaturesLibrary() {
                           </span>
                         )}
                       </TableCell>
-<<<<<<< HEAD
                       {/* <TableCell className='max-w-[200px] truncate text-xs text-muted-foreground'>
                         {f.description ?? '—'}
                       </TableCell> */}
-=======
-                      <TableCell className='max-w-[200px] truncate text-xs text-muted-foreground'>
-                        {f.description ?? '—'}
-                      </TableCell>
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
                       <TableCell className='text-right'>
                         <div className='flex justify-end gap-1'>
                           <Button
@@ -387,14 +345,9 @@ export default function FeaturesLibrary() {
                       ? form.slug
                       : e.target.value
                           .toLowerCase()
-<<<<<<< HEAD
                           .replace(/\s+/g, '-')
                           .replace(/[^a-z0-9-]/g, '')
                           .replace(/-+$/g, ''),
-=======
-                          .replace(/\s+/g, '_')
-                          .replace(/[^a-z0-9_]/g, ''),
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
                   })
                 }
               />
@@ -403,34 +356,21 @@ export default function FeaturesLibrary() {
             <div className='space-y-1'>
               <Label>Slug *</Label>
               <Input
-<<<<<<< HEAD
                 placeholder='faq-section'
-=======
-                placeholder='faq_section'
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
                 value={form.slug}
                 onChange={(e) =>
                   setForm({
                     ...form,
                     slug: e.target.value
                       .toLowerCase()
-<<<<<<< HEAD
                       .replace(/\s+/g, '-')
                       .replace(/[^a-z0-9-]/g, '')
                       .replace(/-+$/g, ''),
-=======
-                      .replace(/\s+/g, '_')
-                      .replace(/[^a-z0-9_]/g, ''),
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
                   })
                 }
               />
               <p className='text-xs text-muted-foreground'>
-<<<<<<< HEAD
                 Unique identifier — lowercase and hyphens only.
-=======
-                Unique identifier — lowercase and underscores only.
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
               </p>
             </div>
 
@@ -455,11 +395,7 @@ export default function FeaturesLibrary() {
               </Select>
             </div>
 
-<<<<<<< HEAD
             {/* <div className='space-y-1'>
-=======
-            <div className='space-y-1'>
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
               <Label>Description</Label>
               <Textarea
                 placeholder='Optional — describe what this feature enables'
@@ -469,11 +405,7 @@ export default function FeaturesLibrary() {
                 }
                 rows={3}
               />
-<<<<<<< HEAD
             </div> */}
-=======
-            </div>
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
           </div>
 
           <DialogFooter>

@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Package } from 'lucide-react'
-<<<<<<< HEAD
 import { supabase } from '@/lib/supabase/supabase'
-=======
-import { supabase } from '@/lib/supabase'
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
 import {
   Select,
   SelectContent,

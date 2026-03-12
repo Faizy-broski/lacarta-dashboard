@@ -30,17 +30,10 @@ import {
   X,
 } from 'lucide-react'
 import { toast } from 'sonner'
-<<<<<<< HEAD
 import { supabase } from '@/lib/supabase/supabase'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter } from '@/components/ui/card'
-=======
-import { supabase } from '@/lib/supabase'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
 import { Checkbox } from '@/components/ui/checkbox'
 import {
   Dialog,
@@ -126,11 +119,7 @@ const TIER_GRADIENTS: Record<number, string> = {
   0: 'bg-linear-to-r from-[#65758B] to-[#808EA3]',
   1: 'bg-linear-to-r from-[#CF9921] to-[#D2BB6B]',
   2: 'bg-linear-to-r from-[#980001] to-[#D40D00]',
-<<<<<<< HEAD
   3: 'bg-linear-to-r from-[#105F2D] to-[#22C55E]',
-=======
-  3: 'bg-linear-to-r from-[#22C55E] to-[#105F2D]',
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
 }
 
 const TIER_BORDER_TOP: Record<number, string> = {
@@ -161,7 +150,6 @@ const TIER_ICONS: Record<number, React.ReactNode> = {
   3: <Sparkles className='h-4 w-4' />,
 }
 
-<<<<<<< HEAD
 // const TIER_GRID_COLS: Record<number, string> = {
 //   1: 'grid-cols-1',
 //   2: 'grid-cols-2',
@@ -175,14 +163,6 @@ const TIER_GRID_COLS: Record<number, string> = {
   3: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
   4: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4',
   5: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-5',
-=======
-const TIER_GRID_COLS: Record<number, string> = {
-  1: 'grid-cols-1',
-  2: 'grid-cols-2',
-  3: 'grid-cols-3',
-  4: 'grid-cols-4',
-  5: 'grid-cols-5',
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
 }
 
 const SCOPES = [
@@ -397,7 +377,6 @@ export default function TierPricingPanel() {
 
   function addCustomFeature() {
     if (!newCustom.label.trim() || !newCustom.slug.trim()) return
-<<<<<<< HEAD
     const slugTrimmed = newCustom.slug.trim()
     const labelTrimmed = newCustom.label.trim()
 
@@ -437,8 +416,6 @@ export default function TierPricingPanel() {
       return
     }
 
-=======
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
     setCustomFeatures((prev) => [...prev, { _key: nextKey(), ...newCustom }])
     setNewCustom({ label: '', slug: '', category_scope: 'all' })
   }
@@ -757,7 +734,6 @@ export default function TierPricingPanel() {
                 </div>
 
                 {/* Prices */}
-<<<<<<< HEAD
                 <div className='space-y-1'>
                   <Label>Monthly Price ($)</Label>
                   <Input
@@ -810,23 +786,6 @@ export default function TierPricingPanel() {
                         yearly billing
                       </p>
                     )}
-=======
-                <div className='grid grid-cols-2 gap-3'>
-                  <div className='space-y-1'>
-                    <Label>Monthly Price ($)</Label>
-                    <Input
-                      type='number'
-                      min={0}
-                      step='0.01'
-                      value={pricingForm.monthly_price}
-                      onChange={(e) =>
-                        setPricingForm({
-                          ...pricingForm,
-                          monthly_price: parseFloat(e.target.value) || 0,
-                        })
-                      }
-                    />
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
                   </div>
                   <div className='space-y-1'>
                     <Label>Yearly Price ($)</Label>
@@ -842,42 +801,12 @@ export default function TierPricingPanel() {
                         })
                       }
                     />
-<<<<<<< HEAD
                     <p className='text-xs text-muted-foreground'>
                       Auto-calculated from monthly × 12 minus discount.
                       Editable.
                     </p>
                   </div>
                 </div>
-=======
-                  </div>
-                </div>
-
-                <div className='space-y-1'>
-                  <Label>Yearly Discount (%)</Label>
-                  <Input
-                    type='number'
-                    min={0}
-                    max={100}
-                    step='0.01'
-                    placeholder='e.g. 10, 15, 20'
-                    value={pricingForm.yearly_discount_percent}
-                    onChange={(e) =>
-                      setPricingForm({
-                        ...pricingForm,
-                        yearly_discount_percent:
-                          parseFloat(e.target.value) || 0,
-                      })
-                    }
-                  />
-                  {pricingForm.yearly_discount_percent > 0 && (
-                    <p className='text-xs text-emerald-600'>
-                      Users save {pricingForm.yearly_discount_percent}% with
-                      yearly billing
-                    </p>
-                  )}
-                </div>
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
               </div>
             </SectionBlock>
 
@@ -980,14 +909,9 @@ export default function TierPricingPanel() {
                               label: e.target.value,
                               slug: e.target.value
                                 .toLowerCase()
-<<<<<<< HEAD
                                 .replace(/\s+/g, '-')
                                 .replace(/[^a-z0-9-]/g, '')
                                 .replace(/-+$/g, ''),
-=======
-                                .replace(/\s+/g, '_')
-                                .replace(/[^a-z0-9_]/g, ''),
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
                             })
                           }
                         />
@@ -996,7 +920,6 @@ export default function TierPricingPanel() {
                         <Label className='text-xs'>Slug *</Label>
                         <Input
                           className='h-8 text-xs'
-<<<<<<< HEAD
                           placeholder='priority-support'
                           value={newCustom.slug}
                           onChange={(e) =>
@@ -1008,12 +931,6 @@ export default function TierPricingPanel() {
                                 .replace(/[^a-z0-9-]/g, '')
                                 .replace(/-+$/g, ''),
                             })
-=======
-                          placeholder='priority_support'
-                          value={newCustom.slug}
-                          onChange={(e) =>
-                            setNewCustom({ ...newCustom, slug: e.target.value })
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
                           }
                         />
                       </div>
@@ -1296,16 +1213,11 @@ function CategoryCard({
       </div>
 
       {/* Tier cards grid */}
-<<<<<<< HEAD
       {/* <div
         className={`grid gap-4 ${TIER_GRID_COLS[tiers.length] ?? 'md:grid-cols-2 lg:grid-cols-4'}`}
       > */}
       <div
         className={`grid gap-4 ${TIER_GRID_COLS[tiers.length] ?? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4'}`}
-=======
-      <div
-        className={`grid gap-4 ${TIER_GRID_COLS[tiers.length] ?? 'grid-cols-4'}`}
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
       >
         {tiers.map((tier) => {
           const record = getPricingRecord(category.id, tier.id)
@@ -1352,7 +1264,6 @@ function UnconfiguredCell({
     'bg-linear-to-r from-slate-400 to-slate-500'
 
   return (
-<<<<<<< HEAD
     <Card className='flex h-full flex-col overflow-hidden rounded-sm border p-0'>
       {/* Header */}
       <div
@@ -1361,16 +1272,6 @@ function UnconfiguredCell({
         <div className='flex items-center gap-3'>
           <span className='flex shrink-0 items-center justify-center rounded-md bg-white/20 p-2 backdrop-blur-md'>
             {TIER_ICONS[tier.tier_order] ?? <User className='h-5 w-5' />}
-=======
-    <Card className='flex h-full flex-col overflow-hidden rounded-2xl border p-0'>
-      {/* Header */}
-      <div
-        className={`overflow-hidden rounded-t-2xl px-4 py-4 text-white shadow-inner ${gradient}`}
-      >
-        <div className='flex items-center gap-3'>
-          <span className='flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/20 backdrop-blur-md'>
-            {TIER_ICONS[tier.tier_order] ?? <User className='h-4 w-4' />}
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
           </span>
           <span className='truncate text-base font-semibold'>{tier.name}</span>
         </div>
@@ -1416,7 +1317,6 @@ function ConfiguredCell({
   const isActive = record.status === 'active'
 
   return (
-<<<<<<< HEAD
     <Card className='flex h-full flex-col overflow-hidden rounded-sm border p-0'>
       {/* ── Header ─────────────────────────────────────────────── */}
       <div
@@ -1426,17 +1326,6 @@ function ConfiguredCell({
           {/* Icon */}
           <span className='flex shrink-0 items-center justify-center rounded-md bg-white/20 p-2 backdrop-blur-md'>
             {TIER_ICONS[tier.tier_order] ?? <User className='h-5 w-5' />}
-=======
-    <Card className='flex h-full flex-col overflow-hidden rounded-2xl border p-0'>
-      {/* ── Header ─────────────────────────────────────────────── */}
-      <div
-        className={`overflow-hidden rounded-t-2xl px-4 py-4 text-white shadow-inner ${gradient}`}
-      >
-        <div className='flex items-start gap-3'>
-          {/* Icon */}
-          <span className='flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/20 backdrop-blur-md'>
-            {TIER_ICONS[tier.tier_order] ?? <User className='h-4 w-4' />}
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
           </span>
 
           {/* Title + badges */}
@@ -1446,11 +1335,7 @@ function ConfiguredCell({
             </span>
             <div className='flex items-center gap-1.5'>
               <Badge
-<<<<<<< HEAD
                 className={`w-fit cursor-pointer rounded-full px-3 text-[10px] font-medium ${
-=======
-                className={`w-fit cursor-pointer rounded-full px-3 text-xs font-medium ${
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
                   isActive
                     ? 'bg-white text-slate-700'
                     : 'bg-white/30 text-white'
@@ -1460,11 +1345,7 @@ function ConfiguredCell({
                 {isActive ? 'Active' : 'Inactive'}
               </Badge>
               {tier.is_admin_free && (
-<<<<<<< HEAD
                 <Badge className='cursor-pointer rounded-full bg-white/20 px-2 text-[10px] text-white'>
-=======
-                <Badge className='rounded-full bg-white/20 px-2 text-[10px] text-white'>
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
                   Admin
                 </Badge>
               )}
@@ -1482,7 +1363,6 @@ function ConfiguredCell({
         </div>
       </div>
 
-<<<<<<< HEAD
       <CardContent className='px-6 sm:px-3'>
         {/* ── Price ──────────────────────────────────────────────── */}
         <div>
@@ -1530,56 +1410,6 @@ function ConfiguredCell({
       {/* ── Footer ─────────────────────────────────────────────── */}
       <div className='flex items-center gap-2 px-4 py-3'>
         {/* <Button
-=======
-      {/* ── Price ──────────────────────────────────────────────── */}
-      <div className='px-5 pt-4 pb-2'>
-        <div className='flex items-end gap-1'>
-          <span className='text-3xl font-bold text-slate-900'>
-            ${Number(record.monthly_price).toFixed(0)}
-          </span>
-          <span className='mb-0.5 text-sm text-slate-500'>/month</span>
-        </div>
-        <div className='mt-1 flex flex-wrap items-center gap-2'>
-          <span className='text-xs text-muted-foreground'>
-            ${Number(record.yearly_price).toFixed(0)}/year
-          </span>
-          {record.yearly_discount_percent > 0 && (
-            <Badge className='rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-medium text-emerald-700'>
-              Save {record.yearly_discount_percent}%
-            </Badge>
-          )}
-        </div>
-      </div>
-
-      <hr className='mx-5 border-slate-100' />
-
-      {/* ── Features ───────────────────────────────────────────── */}
-      <div className='flex-1 px-5 py-3'>
-        <p className='mb-2.5 text-[10px] font-semibold tracking-widest text-muted-foreground uppercase'>
-          Key Features
-        </p>
-        {features.length === 0 ? (
-          <p className='text-xs text-muted-foreground italic'>
-            No features linked
-          </p>
-        ) : (
-          <ul className='space-y-2'>
-            {features.map((f) => (
-              <li key={f.id} className='flex items-start gap-2.5'>
-                <Check className='mt-0.5 h-4 w-4 shrink-0 text-emerald-500' />
-                <span className='text-sm leading-tight text-slate-700'>
-                  {f.label}
-                </span>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
-      {/* ── Footer ─────────────────────────────────────────────── */}
-      <div className='flex items-center gap-2 border-t px-4 py-3'>
-        <Button
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
           variant='outline'
           className='flex-1 rounded-lg border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200'
           size='sm'
@@ -1587,17 +1417,10 @@ function ConfiguredCell({
         >
           <Pencil className='mr-1.5 h-3 w-3' />
           Edit
-<<<<<<< HEAD
         </Button> */}
         <Button
           size='sm'
           className='flex-1 rounded-md bg-linear-to-r from-[#CF9921] to-[#D2BB6B] text-xs text-white hover:from-yellow-600 hover:to-yellow-700'
-=======
-        </Button>
-        <Button
-          size='sm'
-          className='flex-1 rounded-lg bg-linear-to-r from-[#CF9921] to-[#D2BB6B] text-white hover:from-yellow-600 hover:to-yellow-700'
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
           onClick={onEdit}
         >
           Manage

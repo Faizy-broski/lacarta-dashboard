@@ -46,22 +46,6 @@ import { SettingsProfile } from '@/features/settings/profile'
 import { Subscription } from '@/features/subscription/index'
 import { Tasks } from '@/features/tasks/index'
 import { Users } from '@/features/users/index'
-<<<<<<< HEAD
-=======
-import { Subscription } from '@/features/subscription/index'
-import { Events } from '@/features/events and calender/index'
-import {DealsPage} from '@/features/deals-page/index'
-import {ActiveDealsPage} from '@/features/deals-page/activeDealsPage'
-import {ContentPage} from '@/features/content/index'
-import {ArticleContent} from '@/features/content/article'
-import {DraftContent} from '@/features/content/draft'
-import {CategoryContent} from '@/features/content/category'
-import {FeatureContent} from '@/features/content/featured'
-import {TravelToolContent} from '@/features/content/travelTool'
-import {AnalyticsPage} from '@/features/analytics/index'
-import {OwnerListingEditorPage} from '@/features/Owner-Page/index'
-import {CategoryPage} from '@/features/categories/index'
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
 
 function ErrorComponent() {
   const { error } = useParams<{ error?: string }>()
@@ -96,28 +80,6 @@ export default (
   <Route element={<ProtectedLayout />}>
     {/* Default redirect — auth guard redirects to role-specific dashboard */}
     <Route index element={<Dashboard />} />
-<<<<<<< HEAD
-=======
-    <Route path='/owner/dashboard' element={<Dashboard />} />
-    <Route path='/admin/dashboard' element={<Dashboard />} />
-    <Route path='/assistant/dashboard' element={<Dashboard />} />
-    <Route path='/editor/dashboard' element={<Dashboard />} />
-    <Route path='/client/dashboard' element={<Dashboard />} />
-    <Route path='/subscriber/dashboard' element={<Dashboard />} />
-    <Route path='/users' element={<Users />} />
-    <Route path='/tasks' element={<Tasks />} />
-    <Route path='/chats' element={<Chats />} />
-    <Route path='/apps' element={<Apps />} />
-    <Route path='/help-center' element={<ComingSoon />} />
-    <Route path='/subscriptions' element={<Subscription />} />
-    <Route path='/events-&-calenders' element={<Events />} />
-    <Route path='/deals/all-deals' element={<DealsPage />} />
-    <Route path='/deals/active-deals' element={<ActiveDealsPage />} />
-    <Route path='/analytics/admin-analytics' element={<AnalyticsPage />} />
-    <Route path='/analytics/owner-analytics' element={<OwnerListingEditorPage />} />
-    <Route path='/categories' element={<CategoryPage />}/>
-    
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
 
     {/* Role-specific dashboards */}
     <Route

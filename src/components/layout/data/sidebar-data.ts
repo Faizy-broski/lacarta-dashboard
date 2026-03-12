@@ -581,21 +581,12 @@ export const sidebarData: any = {
           ],
         },
         {
-<<<<<<< HEAD
           title: 'Filters',
           url: '/filters',
           icon: Package,
         },
         // ],
         // },
-=======
-          title: 'Categories',
-          url: '/categories',
-          icon: Package,
-        },
-      // ],
-    // },
->>>>>>> 91c8275e21ebe53394e61bb8fd2cb98e49da81ac
 
         // {
         //   title: 'Pages',
