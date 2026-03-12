@@ -17,7 +17,7 @@ export function Logo({ className, ...props }: SVGProps<SVGSVGElement>) {
     //   {...props}
     // >
     <>
-      <img src='/images/Logo.png' alt='' className={cn('size-6', className)} />
+      <img src='/images/Black Logo.png' alt='' className={cn('', className)} />
       {/* <title>Lacarta-Admin</title> */}
       {/* <path d='M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3' /> */}
     </>

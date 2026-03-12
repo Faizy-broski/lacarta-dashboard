@@ -13,7 +13,7 @@ import { OtpForm } from './components/otp-form'
 
 export function Otp() {
   return (
-    <AuthLayout>
+    // <AuthLayout>
       <Card className='gap-4'>
         <CardHeader>
           <CardTitle className='text-base tracking-tight'>
@@ -40,6 +40,6 @@ export function Otp() {
           </p>
         </CardFooter>
       </Card>
-    </AuthLayout>
+    // </AuthLayout>
   )
 }

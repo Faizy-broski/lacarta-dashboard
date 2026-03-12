@@ -4,8 +4,9 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
-import { IconFacebook, IconGithub } from '@/assets/brand-icons'
+// import { IconFacebook, IconGithub } from '@/assets/brand-icons'
 import { useAuthStore } from '@/stores/auth-store'
+import { signUp } from '@/lib/auth/auth.service'
 import { sleep, cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
@@ -21,6 +22,8 @@ import { PasswordInput } from '@/components/password-input'
 
 const formSchema = z
   .object({
+    full_name: z.string().min(2, 'Please enter your name'),
+
     email: z.email({
       error: (iss) =>
         iss.input === '' ? 'Please enter your email' : undefined,
@@ -47,40 +50,47 @@ export function SignUpForm({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      full_name: '',
       email: '',
       password: '',
       confirmPassword: '',
     },
   })
 
-  function onSubmit(data: z.infer<typeof formSchema>) {
+  async function onSubmit(data: z.infer<typeof formSchema>) {
     setIsLoading(true)
 
-    toast.promise(sleep(2000), {
-      loading: 'Signing in...',
-      success: () => {
-        setIsLoading(false)
+    const user_role = 'client'
 
-        // Mock successful authentication with expiry computed at success time
-        const mockUser = {
-          accountNo: 'ACC001',
-          email: data.email,
-          role: ['user'],
-          exp: Date.now() + 24 * 60 * 60 * 1000, // 24 hours from now
-        }
+    const redirect = await signUp(data.email, data.password, data.full_name, user_role)
 
-        // Set user and access token
-        auth.setUser(mockUser)
-        auth.setAccessToken('mock-access-token')
+    navigate(redirect)
 
-        // Redirect to the stored location or default to dashboard
-        const targetPath = '/'
-        navigate(targetPath, { replace: true })
+    // toast.promise(sleep(2000), {
+    //   loading: 'Signing in...',
+    //   success: () => {
+    //     setIsLoading(false)
 
-        return `Welcome back, ${data.email}!`
-      },
-      error: 'Error',
-    })
+    //     // Mock successful authentication with expiry computed at success time
+    //     const mockUser = {
+    //       accountNo: 'ACC001',
+    //       email: data.email,
+    //       role: ['user'],
+    //       exp: Date.now() + 24 * 60 * 60 * 1000, // 24 hours from now
+    //     }
+
+    //     // Set user and access token
+    //     auth.setUser(mockUser)
+    //     auth.setAccessToken('mock-access-token')
+
+    //     // Redirect to the stored location or default to dashboard
+    //     const targetPath = '/'
+    //     navigate(targetPath, { replace: true })
+
+    //     return `Welcome back, ${data.email}!`
+    //   },
+    //   error: 'Error',
+    // })
   }
 
   return (
@@ -90,6 +100,19 @@ export function SignUpForm({
         className={cn('grid gap-3', className)}
         {...props}
       >
+      <FormField
+          control={form.control}
+          name='full_name'
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Full Name</FormLabel>
+              <FormControl>
+                <Input placeholder='John Doe' {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name='email'
@@ -130,7 +153,7 @@ export function SignUpForm({
           )}
         />
         <Button
-          className='mt-2 bg-gradient-to-r from-[#CF9921] to-[#D2BB6B]'
+          className='mt-2 bg-gradient-to-b from-gold to-gold-light'
           disabled={isLoading}
         >
           Sign up

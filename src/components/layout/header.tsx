@@ -34,54 +34,46 @@ export function Header({ className, fixed, children, ...props }: HeaderProps) {
   return (
     <header
       className={cn(
-        'z-50 h-16',
+        'z-50 h-14 sm:h-16',
         fixed && 'sticky top-0',
         offset > 10 && fixed ? 'shadow' : 'shadow-none',
         className
       )}
       {...props}
     >
-      {/* <div className='flex h-full items-center gap-4 px-4'> */}
-      <div className='flex h-full items-center justify-between gap-4 px-4'>
-        {/* <SidebarTrigger variant='outline' className='md:hidden' /> */}
-
-        {/* 🔑 Page-specific content */}
-        {/* <div className='flex items-center justify-between'>{children}</div> */}
+      <div className='flex h-full items-center justify-between gap-2 px-2 sm:gap-4 sm:px-4'>
         {/* LEFT SIDE */}
-        <div className='flex w-full items-center gap-4'>
-          <SidebarTrigger variant='ghost' className='md:hidden' />
+        <div className='flex min-w-0 flex-1 items-center gap-2 sm:gap-4'>
+          <SidebarTrigger variant='ghost' className='shrink-0 md:hidden' />
           <Search className='w-8 sm:w-1/3' />
         </div>
 
-        {/* 🔒 Global controls */}
-        {/* <div className='flex items-center'> */}
-        {/* <TopNav links={topNav} /> */}
-
-        {/* <Search className='w-10 sm:w-full' /> */}
-
-        {/* <div className='flex-1 md:hidden'></div> */}
-        {/* <div className='flex justify-end'> */}
-        <div className='flex shrink-0 items-center gap-2'>
-          <Button className='bg-gradient-to-r from-[#22c55e] to-[#11602e]'>
-            <Plus />
-            {/* <Button className='rounded-lg bg-[#1a8542] px-6 text-white hover:bg-[#136b33]'>
-            <Plus className='mr-1 h-4 w-4' /> */}
+        {/* RIGHT SIDE */}
+        <div className='flex shrink-0 items-center gap-1 sm:gap-2'>
+          {/* New Article – icon only on mobile, full on sm+ */}
+          <Button
+            size='icon'
+            className='bg-gradient-to-r from-[#105F2D] to-[#22C55E] sm:hidden'
+          >
+            <Plus className='h-4 w-4' />
+          </Button>
+          <Button className='hidden bg-gradient-to-r from-[#105F2D] to-[#22C55E] sm:inline-flex'>
+            <Plus className='mr-1 h-4 w-4' />
             New Article
           </Button>
-          <Button variant='ghost' size='icon' className='scale-95 rounded-full'>
-            <Bell />
-            {/* <Button
+
+          <Button
             variant='ghost'
             size='icon'
-            className='relative scale-110 rounded-full text-muted-foreground hover:text-foreground'
-          > */}
-            {/* <span className='absolute top-1.5 right-1.5 h-2 w-2 rounded-full border border-background bg-red-600'></span> */}
+            className='h-8 w-8 rounded-full sm:h-9 sm:w-9'
+          >
+            <Bell className='h-4 w-4' />
           </Button>
-          <ThemeSwitch />
-          {/* <ConfigDrawer /> */}
+          <div className='hidden sm:block'>
+            <ThemeSwitch />
+          </div>
           <ProfileDropdown />
         </div>
-        {/* </div> */}
       </div>
     </header>
   )

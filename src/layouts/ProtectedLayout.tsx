@@ -1,7 +1,8 @@
 import { Outlet, Navigate } from 'react-router-dom'
 import { useAuthStore } from '@/stores/auth-store'
+import AuthGuard from '@/lib/auth/auth.guard'
+import { getCookie } from '@/lib/cookies/cookies'
 import { cn } from '@/lib/utils'
-import { getCookie } from '@/lib/cookies'
 import { LayoutProvider } from '@/context/layout-provider'
 import { SearchProvider } from '@/context/search-provider'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
@@ -12,14 +13,16 @@ type AuthenticatedLayoutProps = {
   children?: React.ReactNode
 }
 
-export default function ProtectedLayout({ children }: AuthenticatedLayoutProps) {
+export default function ProtectedLayout({
+  children,
+}: AuthenticatedLayoutProps) {
   const defaultOpen = getCookie('sidebar_state') !== 'false'
-  const accessToken = useAuthStore((s) => s.auth.accessToken)
-  const isAuthenticated = Boolean(accessToken)
+  // const accessToken = useAuthStore((s) => s.auth.accessToken)
+  // const isAuthenticated = Boolean(accessToken)
 
-  if (!isAuthenticated) {
-    return <Navigate to='/sign-in' replace />
-  }
+  // if (!isAuthenticated) {
+  //   return <Navigate to='/sign-in' replace />
+  // }
 
   return (
     // <LayoutProvider>
@@ -29,6 +32,7 @@ export default function ProtectedLayout({ children }: AuthenticatedLayoutProps) 
     //     </SearchProvider>
     //   </SidebarProvider>
     // </LayoutProvider>
+    <AuthGuard>
     <SearchProvider>
       <LayoutProvider>
         <SidebarProvider defaultOpen={defaultOpen}>
@@ -53,5 +57,6 @@ export default function ProtectedLayout({ children }: AuthenticatedLayoutProps) 
         </SidebarProvider>
       </LayoutProvider>
     </SearchProvider>
+    </AuthGuard>
   )
 }

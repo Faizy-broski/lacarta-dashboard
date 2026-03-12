@@ -13,11 +13,15 @@ import {
 } from '@/components/ui/sidebar'
 import { SignOutDialog } from '@/components/sign-out-dialog'
 import { AppTitle } from './app-title'
-import { sidebarData } from './data/sidebar-data'
+import { getSidebarNavForRole } from './data/sidebar-data'
 import { NavGroup } from './nav-group'
+import { useAuthStore } from '@/lib/auth/auth.store'
 
 export function AppSidebar() {
   const [open, setOpen] = useDialogState()
+  const user = useAuthStore((s) => s.user)
+  const role = user?.role?.[0]
+  const navGroups = getSidebarNavForRole(role)
   // const { collapsible, variant } = useLayout()
   return (
     // <Sidebar collapsible={collapsible} variant={variant}>
@@ -30,8 +34,8 @@ export function AppSidebar() {
         <AppTitle />
       </SidebarHeader>
       <SidebarContent>
-        {sidebarData.navGroups.map((props: any) => (
-          <NavGroup key={props.title} {...props} />
+        {navGroups.map((props: any) => (
+          <NavGroup key={props.title ?? 'main'} {...props} />
         ))}
       </SidebarContent>
       <SidebarFooter>

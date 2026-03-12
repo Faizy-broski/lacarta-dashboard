@@ -304,8 +304,11 @@ import { Analytics } from './components/analytics'
 import { AnalyticsPanels } from './components/analyticsPanels'
 import { EventsAndDeals } from './components/eventsAndDeals'
 import { QuickActions } from './components/quick-action'
+import { useAuthStore } from "@/lib/auth/auth.store"
 
 export function Dashboard() {
+  const user = useAuthStore((state) => state.user)
+
   return (
     <>
       {/* ===== Top Heading ===== */}
@@ -315,7 +318,7 @@ export function Dashboard() {
       <Main>
         <div className='mb-6 h-20 space-y-1 pt-2'>
           <h1 className='font-antigua font-serif text-4xl font-semibold tracking-normal text-[#1a1c1e] dark:text-white'>
-            Welcome back, <span className='text-[#c4a04d]'>Maria</span>
+            Welcome back, <span className='text-[#c4a04d]'>{user?.name}</span>
           </h1>
           <p className='text-sm text-muted-foreground'>
             Here's what's happening with LaCarta.co today.
