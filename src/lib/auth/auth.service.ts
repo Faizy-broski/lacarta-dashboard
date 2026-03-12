@@ -20,17 +20,21 @@ export async function signIn(email: string, password: string) {
 
   const { data: userData } = await supabase
     .from('users')
-    .select('full_name, role')
+    .select('full_name, role, bio, profile_photo_url')
     .eq('id', data.user.id)
     .single()
 
   const role = userData?.role
   const name = userData?.full_name
+  const profile_photo_url = userData?.profile_photo_url
+  const bio = userData?.bio
 
   const user: AuthUser = {
     accountNo: data.user.id,
     email: data.user.email ?? '',
     name: name ?? '',
+    bio: bio ?? '',
+    profile_photo_url: profile_photo_url ?? '',
     role: [role],
     exp: Date.now() + 24 * 60 * 60 * 1000,
   }
@@ -75,17 +79,21 @@ export async function signUp(
 
   const { data: userData } = await supabase
     .from('users')
-    .select('full_name, role')
+    .select('full_name, role, bio, profile_photo_url')
     .eq('id', data.user.id)
     .single()
 
   const role = userData?.role
   const name = userData?.full_name
+  const profile_photo_url = userData?.profile_photo_url
+  const bio = userData?.bio
 
   const user: AuthUser = {
     accountNo: data.user.id,
     email: data.user.email ?? '',
     name: name ?? '',
+    bio: bio ?? '',
+    profile_photo_url: profile_photo_url ?? '',
     role: [role],
     exp: Date.now() + 24 * 60 * 60 * 1000,
   }
